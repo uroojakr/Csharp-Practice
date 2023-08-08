@@ -1,9 +1,18 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
+using System.Net.Security;
 
 namespace HelloWorld
 {
+    enum list
+    {
+        jan,
+        feb,
+        march,
+        april,
+        may,
+    }
     /* class Program
      {
          static void Main(string[] args)
@@ -55,7 +64,7 @@ namespace HelloWorld
 
     // practice problems //
     // 1- Program to print an integer entered by user
-  
+
     /*class UserInt
         {
             static void Main(string[] args)
@@ -91,7 +100,7 @@ namespace HelloWorld
     }*/
 
     //3- Calculating Rectangle Area
-    class RectangleArea
+    /* class RectangleArea
     {
         static void Main(string[] args)
         {
@@ -102,8 +111,21 @@ namespace HelloWorld
             perimeter = 4 * squareheight;
             Console.WriteLine("Area {0} \n Perimeter {1}", area,perimeter);
         }
+    }*/
+
+    //4- Enums in C#
+    class Enum
+    {
+        static void Main(string[] args)
+        {
+            list year = list.jan;
+            Console.WriteLine(year);
+        }
+        
+
     }
 
 
 
-} // namespace
+
+    } // namespace
