@@ -2,17 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 using System.Net.Security;
+using System.Runtime.InteropServices;
 
 namespace HelloWorld
 {
-    enum list
-    {
-        jan,
-        feb,
-        march,
-        april,
-        may,
-    }
+
     /* class Program
      {
          static void Main(string[] args)
@@ -114,13 +108,105 @@ namespace HelloWorld
     }*/
 
     //4- Enums in C#
-    class Enum
+    enum list
+    {
+        jan = 1,
+        feb,
+        march,
+        april,
+        may,
+    }
+    class EnumPractice
     {
         static void Main(string[] args)
         {
-            list year = list.jan;
-            Console.WriteLine(year);
+            //list year = list.jan;
+            //Console.WriteLine(year);
+            //Console.BackgroundColor = ConsoleColor.Yellow;
+
+            //Console.WriteLine("Enter your Name ");
+            //string name = Console.ReadLine();
+
+            //Console.WriteLine("Enter your Bday  Jan = 1, Feb = 2, March = 3");
+            //int value = int.Parse(Console.ReadLine());
+
+            //list myYear = (list)value;
+
+            //Console.WriteLine("My name is: {0} and my birth month is {1}", name, myYear);
+
+            //string[] members = (string[])Enum.GetNames(typeof(list));
+
+            //foreach (string member in members)
+            //{
+            //    Console.WriteLine(member);
+            //}
+
+            //int[] membersValues = (int[])Enum.GetValues(typeof(list));
+
+            //foreach (int member in membersValues)
+            //{
+            //    Console.WriteLine(member);
+            //}
+
+            //  list MyYear = list.march;
+            //int MyYear = (int)list.april;
+            //switch (MyYear)
+            //{
+            //    case 1:
+            //        Console.WriteLine("Hello this is Jan");
+            //        break;
+            //    case 2:
+            //        Console.WriteLine("Hello this is feb");
+            //        break;
+            //    case 3:
+            //        Console.WriteLine("Hello this is march");
+            //        break;
+            //    case 4:
+            //        Console.WriteLine("Hello this is april");
+            //        break;
+            //    case 5:
+            //        Console.WriteLine("Hello this is may");
+            //        break;
+            //    default:
+            //        Console.WriteLine("Invalid Day");
+            //        break;
+            //}
+            //string[] name = { "urooj", "sara" };
+            //string[] car = new string[3];
+            //string[] pen = new string[] { "picasso", "healy" };
+
+            //int[,] numbers  = { { 3,2,5}, {2,4,2 } };
+
+            //for (int i = 0; i < numbers.GetLength(0); i++)
+            //    for (int j = 0; j < numbers.GetLength(1); j++)
+            //    {
+            //        {
+            //            Console.WriteLine(numbers[i, j]);
+            //        }
+            //    }
+            //foreach(int i in numbers)
+            //{
+            //    Console.WriteLine(i);
+            //}
+
+
         }
+        static class product
+        {
+            public static int ProductId;
+            public static string ProductName;
+            public static string ProductDescription;    
+
+            static product()
+            {
+                ProductId = 1;
+                ProductName = "piano";
+                ProductDescription = " antique piano ";
+            }
+
+        }
+
+        
         
 
     }
