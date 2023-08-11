@@ -1,0 +1,8 @@
+C:\Users\akramuro\source\repos\Encapsulation_Csharp\Encapsulation_Csharp\bin\Debug\Encapsulation_Csharp.exe.config
+C:\Users\akramuro\source\repos\Encapsulation_Csharp\Encapsulation_Csharp\bin\Debug\Encapsulation_Csharp.exe
+C:\Users\akramuro\source\repos\Encapsulation_Csharp\Encapsulation_Csharp\bin\Debug\Encapsulation_Csharp.pdb
+C:\Users\akramuro\source\repos\Encapsulation_Csharp\Encapsulation_Csharp\obj\Debug\Encapsulation_Csharp.csproj.AssemblyReference.cache
+C:\Users\akramuro\source\repos\Encapsulation_Csharp\Encapsulation_Csharp\obj\Debug\Encapsulation_Csharp.csproj.SuggestedBindingRedirects.cache
+C:\Users\akramuro\source\repos\Encapsulation_Csharp\Encapsulation_Csharp\obj\Debug\Encapsulation_Csharp.csproj.CoreCompileInputs.cache
+C:\Users\akramuro\source\repos\Encapsulation_Csharp\Encapsulation_Csharp\obj\Debug\Encapsulation_Csharp.exe
+C:\Users\akramuro\source\repos\Encapsulation_Csharp\Encapsulation_Csharp\obj\Debug\Encapsulation_Csharp.pdb
