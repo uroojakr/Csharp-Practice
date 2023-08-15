@@ -1,0 +1,7 @@
+C:\Users\akramuro\source\repos\Sealed_Classes\Sealed_Classes\bin\Debug\Sealed_Classes.exe.config
+C:\Users\akramuro\source\repos\Sealed_Classes\Sealed_Classes\bin\Debug\Sealed_Classes.exe
+C:\Users\akramuro\source\repos\Sealed_Classes\Sealed_Classes\bin\Debug\Sealed_Classes.pdb
+C:\Users\akramuro\source\repos\Sealed_Classes\Sealed_Classes\obj\Debug\Sealed_Classes.csproj.AssemblyReference.cache
+C:\Users\akramuro\source\repos\Sealed_Classes\Sealed_Classes\obj\Debug\Sealed_Classes.csproj.CoreCompileInputs.cache
+C:\Users\akramuro\source\repos\Sealed_Classes\Sealed_Classes\obj\Debug\Sealed_Classes.exe
+C:\Users\akramuro\source\repos\Sealed_Classes\Sealed_Classes\obj\Debug\Sealed_Classes.pdb

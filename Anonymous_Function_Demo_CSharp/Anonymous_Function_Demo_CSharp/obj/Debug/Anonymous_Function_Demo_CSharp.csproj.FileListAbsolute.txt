@@ -1,0 +1,7 @@
+C:\Users\akramuro\source\repos\Anonymous_Function_Demo_CSharp\Anonymous_Function_Demo_CSharp\bin\Debug\Anonymous_Function_Demo_CSharp.exe.config
+C:\Users\akramuro\source\repos\Anonymous_Function_Demo_CSharp\Anonymous_Function_Demo_CSharp\bin\Debug\Anonymous_Function_Demo_CSharp.exe
+C:\Users\akramuro\source\repos\Anonymous_Function_Demo_CSharp\Anonymous_Function_Demo_CSharp\bin\Debug\Anonymous_Function_Demo_CSharp.pdb
+C:\Users\akramuro\source\repos\Anonymous_Function_Demo_CSharp\Anonymous_Function_Demo_CSharp\obj\Debug\Anonymous_Function_Demo_CSharp.csproj.AssemblyReference.cache
+C:\Users\akramuro\source\repos\Anonymous_Function_Demo_CSharp\Anonymous_Function_Demo_CSharp\obj\Debug\Anonymous_Function_Demo_CSharp.csproj.CoreCompileInputs.cache
+C:\Users\akramuro\source\repos\Anonymous_Function_Demo_CSharp\Anonymous_Function_Demo_CSharp\obj\Debug\Anonymous_Function_Demo_CSharp.exe
+C:\Users\akramuro\source\repos\Anonymous_Function_Demo_CSharp\Anonymous_Function_Demo_CSharp\obj\Debug\Anonymous_Function_Demo_CSharp.pdb

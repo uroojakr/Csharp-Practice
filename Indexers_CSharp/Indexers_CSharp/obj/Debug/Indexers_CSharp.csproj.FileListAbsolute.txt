@@ -1,0 +1,7 @@
+C:\Users\akramuro\source\repos\Indexers_CSharp\Indexers_CSharp\bin\Debug\Indexers_CSharp.exe.config
+C:\Users\akramuro\source\repos\Indexers_CSharp\Indexers_CSharp\bin\Debug\Indexers_CSharp.exe
+C:\Users\akramuro\source\repos\Indexers_CSharp\Indexers_CSharp\bin\Debug\Indexers_CSharp.pdb
+C:\Users\akramuro\source\repos\Indexers_CSharp\Indexers_CSharp\obj\Debug\Indexers_CSharp.csproj.AssemblyReference.cache
+C:\Users\akramuro\source\repos\Indexers_CSharp\Indexers_CSharp\obj\Debug\Indexers_CSharp.csproj.CoreCompileInputs.cache
+C:\Users\akramuro\source\repos\Indexers_CSharp\Indexers_CSharp\obj\Debug\Indexers_CSharp.exe
+C:\Users\akramuro\source\repos\Indexers_CSharp\Indexers_CSharp\obj\Debug\Indexers_CSharp.pdb

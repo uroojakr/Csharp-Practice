@@ -53,10 +53,11 @@ namespace MethodHiding_Csharp
         static void Main(string[] args)
         {
             child c = new child();
-            //c.show();
+            c.show();
 
-            //casting for base class
-           // ((parent)c).show();
+            
+            Console.WriteLine("casting for base class ");
+           ((parent)c).show();
 
             //parent p = new child();
             //p.show();

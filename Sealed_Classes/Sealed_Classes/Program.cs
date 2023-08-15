@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sealed_Classes
 {
@@ -22,7 +18,6 @@ namespace Sealed_Classes
         }
     }
 
-
     class A
     {
         public virtual void Print()
@@ -30,7 +25,8 @@ namespace Sealed_Classes
             Console.WriteLine("This is a method of Class A !!");
         }
     }
-    class B : A 
+
+    class B : A
     {
         public sealed override void Print()
         {
@@ -38,20 +34,25 @@ namespace Sealed_Classes
         }
     }
 
-    class C 
+    class C
     {
         public void Print()
         {
             Console.WriteLine("This is a method of Class C !!");
         }
     }
+
     internal class Program
     {
         static void Main(string[] args)
         {
-            C obj = new C();
-           // obj.Print();
-            
+            C objC = new C();
+            objC.Print();
+
+            A objA = new B();
+            objA.Print();
+
+         
         }
     }
 }

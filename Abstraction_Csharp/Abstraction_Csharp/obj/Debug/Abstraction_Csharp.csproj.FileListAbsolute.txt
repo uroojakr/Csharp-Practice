@@ -1,0 +1,7 @@
+C:\Users\akramuro\source\repos\Abstraction_Csharp\Abstraction_Csharp\bin\Debug\Abstraction_Csharp.exe.config
+C:\Users\akramuro\source\repos\Abstraction_Csharp\Abstraction_Csharp\bin\Debug\Abstraction_Csharp.exe
+C:\Users\akramuro\source\repos\Abstraction_Csharp\Abstraction_Csharp\bin\Debug\Abstraction_Csharp.pdb
+C:\Users\akramuro\source\repos\Abstraction_Csharp\Abstraction_Csharp\obj\Debug\Abstraction_Csharp.csproj.AssemblyReference.cache
+C:\Users\akramuro\source\repos\Abstraction_Csharp\Abstraction_Csharp\obj\Debug\Abstraction_Csharp.csproj.CoreCompileInputs.cache
+C:\Users\akramuro\source\repos\Abstraction_Csharp\Abstraction_Csharp\obj\Debug\Abstraction_Csharp.exe
+C:\Users\akramuro\source\repos\Abstraction_Csharp\Abstraction_Csharp\obj\Debug\Abstraction_Csharp.pdb
