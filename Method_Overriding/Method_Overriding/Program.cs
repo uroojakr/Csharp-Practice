@@ -17,6 +17,11 @@ internal class Method_Overriding
             //base.print();
             Console.WriteLine("This is a method of Child Class");
         }
+
+        public static void myMethod(string Child1, string Child2, string Child3) 
+        {
+            Console.WriteLine("The Youngest is "+Child3);
+        }
     }
 
     class Program
@@ -26,7 +31,12 @@ internal class Method_Overriding
             Parent p  = new Child();
             p.print();
 
+            Child.myMethod(Child1: "john", Child2: "sara", Child3: "sidra");
+
+           
             Console.ReadLine();
+
+            
         
         }
     }

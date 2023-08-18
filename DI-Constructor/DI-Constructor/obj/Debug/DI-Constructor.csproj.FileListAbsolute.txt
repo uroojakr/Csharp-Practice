@@ -1,0 +1,7 @@
+C:\Users\akramuro\source\repos\DI-Constructor\DI-Constructor\bin\Debug\DI-Constructor.exe.config
+C:\Users\akramuro\source\repos\DI-Constructor\DI-Constructor\bin\Debug\DI-Constructor.exe
+C:\Users\akramuro\source\repos\DI-Constructor\DI-Constructor\bin\Debug\DI-Constructor.pdb
+C:\Users\akramuro\source\repos\DI-Constructor\DI-Constructor\obj\Debug\DI-Constructor.csproj.AssemblyReference.cache
+C:\Users\akramuro\source\repos\DI-Constructor\DI-Constructor\obj\Debug\DI-Constructor.csproj.CoreCompileInputs.cache
+C:\Users\akramuro\source\repos\DI-Constructor\DI-Constructor\obj\Debug\DI-Constructor.exe
+C:\Users\akramuro\source\repos\DI-Constructor\DI-Constructor\obj\Debug\DI-Constructor.pdb

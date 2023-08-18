@@ -1,0 +1,7 @@
+C:\Users\akramuro\source\repos\Multiple_Inheritance_Interface\Multiple_Inheritance_Interface\bin\Debug\Multiple_Inheritance_Interface.exe.config
+C:\Users\akramuro\source\repos\Multiple_Inheritance_Interface\Multiple_Inheritance_Interface\bin\Debug\Multiple_Inheritance_Interface.exe
+C:\Users\akramuro\source\repos\Multiple_Inheritance_Interface\Multiple_Inheritance_Interface\bin\Debug\Multiple_Inheritance_Interface.pdb
+C:\Users\akramuro\source\repos\Multiple_Inheritance_Interface\Multiple_Inheritance_Interface\obj\Debug\Multiple_Inheritance_Interface.csproj.AssemblyReference.cache
+C:\Users\akramuro\source\repos\Multiple_Inheritance_Interface\Multiple_Inheritance_Interface\obj\Debug\Multiple_Inheritance_Interface.csproj.CoreCompileInputs.cache
+C:\Users\akramuro\source\repos\Multiple_Inheritance_Interface\Multiple_Inheritance_Interface\obj\Debug\Multiple_Inheritance_Interface.exe
+C:\Users\akramuro\source\repos\Multiple_Inheritance_Interface\Multiple_Inheritance_Interface\obj\Debug\Multiple_Inheritance_Interface.pdb

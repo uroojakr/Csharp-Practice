@@ -1,0 +1,7 @@
+C:\Users\akramuro\source\repos\Collection_CSharp\Collection_CSharp\bin\Debug\Collection_CSharp.exe.config
+C:\Users\akramuro\source\repos\Collection_CSharp\Collection_CSharp\bin\Debug\Collection_CSharp.exe
+C:\Users\akramuro\source\repos\Collection_CSharp\Collection_CSharp\bin\Debug\Collection_CSharp.pdb
+C:\Users\akramuro\source\repos\Collection_CSharp\Collection_CSharp\obj\Debug\Collection_CSharp.csproj.AssemblyReference.cache
+C:\Users\akramuro\source\repos\Collection_CSharp\Collection_CSharp\obj\Debug\Collection_CSharp.csproj.CoreCompileInputs.cache
+C:\Users\akramuro\source\repos\Collection_CSharp\Collection_CSharp\obj\Debug\Collection_CSharp.exe
+C:\Users\akramuro\source\repos\Collection_CSharp\Collection_CSharp\obj\Debug\Collection_CSharp.pdb

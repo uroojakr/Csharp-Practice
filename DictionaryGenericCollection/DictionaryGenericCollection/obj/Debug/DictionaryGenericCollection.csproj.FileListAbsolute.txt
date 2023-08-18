@@ -1,0 +1,7 @@
+C:\Users\akramuro\source\repos\DictionaryGenericCollection\DictionaryGenericCollection\bin\Debug\DictionaryGenericCollection.exe.config
+C:\Users\akramuro\source\repos\DictionaryGenericCollection\DictionaryGenericCollection\bin\Debug\DictionaryGenericCollection.exe
+C:\Users\akramuro\source\repos\DictionaryGenericCollection\DictionaryGenericCollection\bin\Debug\DictionaryGenericCollection.pdb
+C:\Users\akramuro\source\repos\DictionaryGenericCollection\DictionaryGenericCollection\obj\Debug\DictionaryGenericCollection.csproj.AssemblyReference.cache
+C:\Users\akramuro\source\repos\DictionaryGenericCollection\DictionaryGenericCollection\obj\Debug\DictionaryGenericCollection.csproj.CoreCompileInputs.cache
+C:\Users\akramuro\source\repos\DictionaryGenericCollection\DictionaryGenericCollection\obj\Debug\DictionaryGenericCollection.exe
+C:\Users\akramuro\source\repos\DictionaryGenericCollection\DictionaryGenericCollection\obj\Debug\DictionaryGenericCollection.pdb
