@@ -1,0 +1,7 @@
+C:\Users\akramuro\source\repos\LINQ-SUBQUERIES\LINQ-SUBQUERIES\bin\Debug\LINQ-SUBQUERIES.exe.config
+C:\Users\akramuro\source\repos\LINQ-SUBQUERIES\LINQ-SUBQUERIES\bin\Debug\LINQ-SUBQUERIES.exe
+C:\Users\akramuro\source\repos\LINQ-SUBQUERIES\LINQ-SUBQUERIES\bin\Debug\LINQ-SUBQUERIES.pdb
+C:\Users\akramuro\source\repos\LINQ-SUBQUERIES\LINQ-SUBQUERIES\obj\Debug\LINQ-SUBQUERIES.csproj.AssemblyReference.cache
+C:\Users\akramuro\source\repos\LINQ-SUBQUERIES\LINQ-SUBQUERIES\obj\Debug\LINQ-SUBQUERIES.csproj.CoreCompileInputs.cache
+C:\Users\akramuro\source\repos\LINQ-SUBQUERIES\LINQ-SUBQUERIES\obj\Debug\LINQ-SUBQUERIES.exe
+C:\Users\akramuro\source\repos\LINQ-SUBQUERIES\LINQ-SUBQUERIES\obj\Debug\LINQ-SUBQUERIES.pdb

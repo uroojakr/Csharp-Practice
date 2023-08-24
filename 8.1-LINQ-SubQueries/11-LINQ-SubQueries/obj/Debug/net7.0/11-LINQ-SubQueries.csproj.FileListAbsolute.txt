@@ -1,0 +1,14 @@
+C:\Users\akramuro\source\repos\11-LINQ-SubQueries\11-LINQ-SubQueries\bin\Debug\net7.0\11-LINQ-SubQueries.exe
+C:\Users\akramuro\source\repos\11-LINQ-SubQueries\11-LINQ-SubQueries\bin\Debug\net7.0\11-LINQ-SubQueries.deps.json
+C:\Users\akramuro\source\repos\11-LINQ-SubQueries\11-LINQ-SubQueries\bin\Debug\net7.0\11-LINQ-SubQueries.runtimeconfig.json
+C:\Users\akramuro\source\repos\11-LINQ-SubQueries\11-LINQ-SubQueries\bin\Debug\net7.0\11-LINQ-SubQueries.dll
+C:\Users\akramuro\source\repos\11-LINQ-SubQueries\11-LINQ-SubQueries\bin\Debug\net7.0\11-LINQ-SubQueries.pdb
+C:\Users\akramuro\source\repos\11-LINQ-SubQueries\11-LINQ-SubQueries\obj\Debug\net7.0\11-LINQ-SubQueries.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\akramuro\source\repos\11-LINQ-SubQueries\11-LINQ-SubQueries\obj\Debug\net7.0\11-LINQ-SubQueries.AssemblyInfoInputs.cache
+C:\Users\akramuro\source\repos\11-LINQ-SubQueries\11-LINQ-SubQueries\obj\Debug\net7.0\11-LINQ-SubQueries.AssemblyInfo.cs
+C:\Users\akramuro\source\repos\11-LINQ-SubQueries\11-LINQ-SubQueries\obj\Debug\net7.0\11-LINQ-SubQueries.csproj.CoreCompileInputs.cache
+C:\Users\akramuro\source\repos\11-LINQ-SubQueries\11-LINQ-SubQueries\obj\Debug\net7.0\11-LINQ-SubQueries.dll
+C:\Users\akramuro\source\repos\11-LINQ-SubQueries\11-LINQ-SubQueries\obj\Debug\net7.0\refint\11-LINQ-SubQueries.dll
+C:\Users\akramuro\source\repos\11-LINQ-SubQueries\11-LINQ-SubQueries\obj\Debug\net7.0\11-LINQ-SubQueries.pdb
+C:\Users\akramuro\source\repos\11-LINQ-SubQueries\11-LINQ-SubQueries\obj\Debug\net7.0\11-LINQ-SubQueries.genruntimeconfig.cache
+C:\Users\akramuro\source\repos\11-LINQ-SubQueries\11-LINQ-SubQueries\obj\Debug\net7.0\ref\11-LINQ-SubQueries.dll
