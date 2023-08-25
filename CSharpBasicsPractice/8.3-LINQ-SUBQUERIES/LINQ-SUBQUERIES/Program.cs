@@ -12,38 +12,26 @@ namespace LINQ_SUBQUERIES
 {
     internal class Program
     {
-        class Student
-        {
-            public string Name { get; set; }
-          
-            public string FirstName { get; set; }
-            public string LastName { get; set; }
-            public int ID { get; set; }
-            public string Street { get; set; }
-            public string City { get; set; }
-            public int Score { get; set; }
-
-            public List<int> Score1;
-        }
-
-        class Teacher
-        {
-            public string FirstName { get; set; }
-            public string LastName { get; set; }
-            public int ID { get; set; }
-            public string City { get; set; }
-        }
+       
+     
         static void Main(string[] args)
         {
-            List<Student> students = new List<Student>
+            List<Student> students = GetStudents();
+
+            List<Student> GetStudents()
             {
+                return new List<Student>
+                {
                 new Student {Name = "Hina", Score = 54},
                 new Student {Name = "Urooj", Score = 65},
                 new Student {Name = "Sana", Score = 97},
                 new Student {Name = "Maria", Score = 87}
-            };
+                };
+            }
 
             double avgScore = students.Average(student => student.Score);
+            DisplayAboveAvgStudents(students, avgScore);
+
 
             var aboveAvgStudents = from student in students
                                    where student.Score > avgScore
@@ -273,7 +261,7 @@ namespace LINQ_SUBQUERIES
             //Console.WriteLine(factorofFourList[2]);
 
 
-            Console.WriteLine("Using Query Method");
+            Console.WriteLine("--------------Using Query Method-----------------");
             var Query6 = students1.Where(s1 => s1.City.Equals("KHI")).Select(student => new { city = student.City, name = student.FirstName, ID = student.ID });
             
             foreach(var i in Query6 ) 
@@ -300,7 +288,7 @@ namespace LINQ_SUBQUERIES
             var CombiningData = students1.Join(
                 teachers,student => student.FirstName,
                 Teacher => Teacher.FirstName,
-                (student, Teacher) =>
+                (student, Teacher) => 
                 (
                     studentName : student.FirstName,
                     teacherName : Teacher.LastName
@@ -316,6 +304,14 @@ namespace LINQ_SUBQUERIES
             //All
             var allScoresAbove8 = students1.All(s => s.Score1.All(s2 => s2 > 5));
 
+            //group join
+            var GroupingTwoLists = students1.GroupJoin(teachers, student => student.City, teacher => teacher.City,(student, teacherGroup)=> new
+            {
+                StudentName = student.FirstName,
+                TeachersInCity = teacherGroup.Select(teacher => teacher.FirstName)
+            });
+
+            DisplayGroupJoin(GroupingTwoLists);
 
 
             Console.WriteLine($"Teacher Count is {TeacherCount}");
@@ -323,26 +319,62 @@ namespace LINQ_SUBQUERIES
             Console.WriteLine($"Avaerage Score is {averageScoreofStudents}");
 
 
-            Console.WriteLine("sorted students");
+            Console.WriteLine("---------------sorted students------------------");
             foreach (var student in sortedStudents ) 
             {
                 Console.WriteLine($"{student.FirstName}, {student.ID}, {student.City}");
             }
 
-            Console.WriteLine("Teachersames");
+            Console.WriteLine("-------------------Teachers Names--------------------");
             foreach (var teachernames in TeachersNames)
             {
                 Console.WriteLine(teachernames);
             }
 
-            Console.WriteLine(CombiningData );
+            Console.WriteLine("----------------------Combining Data---------------------");
             foreach(var data in CombiningData )
             {
-                Console.WriteLine(data);
+                Console.WriteLine($"Teachers Name: {data.teacherName}, Students Name: {data.studentName}");
+              
             }
 
-                         
+            Console.WriteLine("------------------Group By-----------------------");
+            foreach(var i in teachrGroupBy)
+            {
+                Console.WriteLine("Group");
+                foreach(var j in i)
+                {
+                    Console.WriteLine($"{j.FirstName}, {j.LastName}, {j.City}, {j.ID}");
+                }
+            }
+           
+
         }
 
+        private static void DisplayGroupJoin(IEnumerable<dynamic> GroupingTwoLists)
+        {
+            Console.WriteLine("------------------Group Join-----------------------");
+            foreach (var i in GroupingTwoLists)
+            {
+                Console.WriteLine($"{i.StudentName}");
+                Console.WriteLine("Teachers in Same City");
+                foreach (var j in i.TeachersInCity)
+                {
+                    Console.WriteLine($"{j}");
+                }
+                Console.WriteLine("----");
+            }
+        }
+
+        private static void DisplayAboveAvgStudents(List<Student> students, double avgScore)
+        {
+            Console.WriteLine("Students with scores above average");
+            var aboveAvgStudents = students.Where(student => student.Score > avgScore);
+
+            foreach (var student in aboveAvgStudents)
+            {
+                Console.WriteLine($"{student.Name} : {student.Score}");
+            }
+        }
     }
 }

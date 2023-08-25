@@ -24,6 +24,7 @@ namespace Multiple_Inheritance_Interface
         {
             void show();
         }
+        
 
 
         class Teacher : Person, Employee, Employee1

@@ -43,8 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasicPlayer.cs" />
+    <Compile Include="MusicPlayerController.cs" />
+    <Compile Include="PremiumPlayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ISpotify.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

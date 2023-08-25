@@ -68,7 +68,7 @@ namespace Encapsulation_Csharp
             Person p = new Person();
             p.setName("");
             p.getName();
-            p.setAge();
+            p.setAge(13);
             p.getAge(); 
            
             Console.ReadLine(); 

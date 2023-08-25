@@ -5,3 +5,10 @@ C:\Users\akramuro\source\repos\Interface_CSharp\Interface_CSharp\obj\Debug\Inter
 C:\Users\akramuro\source\repos\Interface_CSharp\Interface_CSharp\obj\Debug\Interface_CSharp.csproj.CoreCompileInputs.cache
 C:\Users\akramuro\source\repos\Interface_CSharp\Interface_CSharp\obj\Debug\Interface_CSharp.exe
 C:\Users\akramuro\source\repos\Interface_CSharp\Interface_CSharp\obj\Debug\Interface_CSharp.pdb
+C:\Users\akramuro\source\repos\CSharpBasicsPractice\5.1-Interface_CSharp\Interface_CSharp\obj\Debug\Interface_CSharp.csproj.AssemblyReference.cache
+C:\Users\akramuro\source\repos\CSharpBasicsPractice\5.1-Interface_CSharp\Interface_CSharp\obj\Debug\Interface_CSharp.csproj.CoreCompileInputs.cache
+C:\Users\akramuro\source\repos\CSharpBasicsPractice\5.1-Interface_CSharp\Interface_CSharp\obj\Debug\Interface_CSharp.exe
+C:\Users\akramuro\source\repos\CSharpBasicsPractice\5.1-Interface_CSharp\Interface_CSharp\obj\Debug\Interface_CSharp.pdb
+C:\Users\akramuro\source\repos\CSharpBasicsPractice\5.1-Interface_CSharp\Interface_CSharp\bin\Debug\Interface_CSharp.exe.config
+C:\Users\akramuro\source\repos\CSharpBasicsPractice\5.1-Interface_CSharp\Interface_CSharp\bin\Debug\Interface_CSharp.exe
+C:\Users\akramuro\source\repos\CSharpBasicsPractice\5.1-Interface_CSharp\Interface_CSharp\bin\Debug\Interface_CSharp.pdb

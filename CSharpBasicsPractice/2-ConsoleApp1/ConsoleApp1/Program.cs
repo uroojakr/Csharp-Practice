@@ -86,7 +86,7 @@ namespace ConsoleApp1
             List<int> numbers = new List<int>() { 3, 2, 6, 2 };
 
             IEnumerator<int> nums1 = numbers.GetEnumerator();
-            show1(nums1);
+          //  show1(nums1);
 
             // Reset the enumerator by creating a new one
             IEnumerator<int> nums2 = numbers.GetEnumerator();
