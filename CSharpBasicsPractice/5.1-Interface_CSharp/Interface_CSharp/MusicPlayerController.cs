@@ -15,7 +15,6 @@ namespace Interface_CSharp
             player.PlaySong("The Wolf by The Siames");
             player.pause();
             player.stop();
-            player.shuffle();
             player.resume();
         }
     }

@@ -12,7 +12,7 @@ namespace Interface_CSharp
         void resume();
         void pause();
         void stop();
-        void shuffle();
+        
 
         string CurrentSong { get; set; }
         void PlaySong(string songName);

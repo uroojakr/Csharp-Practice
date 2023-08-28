@@ -1,0 +1,14 @@
+C:\Users\akramuro\source\repos\Entity-Framework-Practices\Entity-Framework-Practices\bin\Debug\net7.0\Entity-Framework-Practices.exe
+C:\Users\akramuro\source\repos\Entity-Framework-Practices\Entity-Framework-Practices\bin\Debug\net7.0\Entity-Framework-Practices.deps.json
+C:\Users\akramuro\source\repos\Entity-Framework-Practices\Entity-Framework-Practices\bin\Debug\net7.0\Entity-Framework-Practices.runtimeconfig.json
+C:\Users\akramuro\source\repos\Entity-Framework-Practices\Entity-Framework-Practices\bin\Debug\net7.0\Entity-Framework-Practices.dll
+C:\Users\akramuro\source\repos\Entity-Framework-Practices\Entity-Framework-Practices\bin\Debug\net7.0\Entity-Framework-Practices.pdb
+C:\Users\akramuro\source\repos\Entity-Framework-Practices\Entity-Framework-Practices\obj\Debug\net7.0\Entity-Framework-Practices.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\akramuro\source\repos\Entity-Framework-Practices\Entity-Framework-Practices\obj\Debug\net7.0\Entity-Framework-Practices.AssemblyInfoInputs.cache
+C:\Users\akramuro\source\repos\Entity-Framework-Practices\Entity-Framework-Practices\obj\Debug\net7.0\Entity-Framework-Practices.AssemblyInfo.cs
+C:\Users\akramuro\source\repos\Entity-Framework-Practices\Entity-Framework-Practices\obj\Debug\net7.0\Entity-Framework-Practices.csproj.CoreCompileInputs.cache
+C:\Users\akramuro\source\repos\Entity-Framework-Practices\Entity-Framework-Practices\obj\Debug\net7.0\Entity-Framework-Practices.dll
+C:\Users\akramuro\source\repos\Entity-Framework-Practices\Entity-Framework-Practices\obj\Debug\net7.0\refint\Entity-Framework-Practices.dll
+C:\Users\akramuro\source\repos\Entity-Framework-Practices\Entity-Framework-Practices\obj\Debug\net7.0\Entity-Framework-Practices.pdb
+C:\Users\akramuro\source\repos\Entity-Framework-Practices\Entity-Framework-Practices\obj\Debug\net7.0\Entity-Framework-Practices.genruntimeconfig.cache
+C:\Users\akramuro\source\repos\Entity-Framework-Practices\Entity-Framework-Practices\obj\Debug\net7.0\ref\Entity-Framework-Practices.dll

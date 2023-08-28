@@ -31,10 +31,6 @@ namespace Interface_CSharp
             Console.WriteLine($"{CurrentSong} Song is resumed");
         }
 
-        public void shuffle()
-        {
-            Console.WriteLine($"{CurrentSong} Song is shuffled");
-        }
 
         public void stop()
         {
