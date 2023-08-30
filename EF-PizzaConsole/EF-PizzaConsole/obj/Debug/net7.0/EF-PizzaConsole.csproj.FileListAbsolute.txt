@@ -1,0 +1,5 @@
+C:\Users\akramuro\source\repos\EF-PizzaConsole\EF-PizzaConsole\obj\Debug\net7.0\EF-PizzaConsole.csproj.AssemblyReference.cache
+C:\Users\akramuro\source\repos\EF-PizzaConsole\EF-PizzaConsole\obj\Debug\net7.0\EF-PizzaConsole.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\akramuro\source\repos\EF-PizzaConsole\EF-PizzaConsole\obj\Debug\net7.0\EF-PizzaConsole.AssemblyInfoInputs.cache
+C:\Users\akramuro\source\repos\EF-PizzaConsole\EF-PizzaConsole\obj\Debug\net7.0\EF-PizzaConsole.AssemblyInfo.cs
+C:\Users\akramuro\source\repos\EF-PizzaConsole\EF-PizzaConsole\obj\Debug\net7.0\EF-PizzaConsole.csproj.CoreCompileInputs.cache

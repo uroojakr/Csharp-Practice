@@ -1,93 +1,109 @@
-﻿
-
-using Pizza_Delivery.Data;
+﻿using Pizza_Delivery.Data;
 using Pizza_Delivery.Models;
-using Pizza_Delivery.Operations;
+using Pizza_Delivery.Repositories;
+using Pizza_Delivery.Repositories.Services;
 
-//using ItallianPizzaContext context = new ItallianPizzaContext();  //instace disposed properly when done using it
-
-
-////----------------adding to DB--------------------------
-//Product TikkaPizza = new Product()
-//{
-//    Name = "Tikka Pizza",
-//    Price = 3800,
-//};
-//context.Add(TikkaPizza);
-
-
-
-////LINQ syntax
-//var products2 = from product in context.Products
-//                where product.Price > 2300
-//                orderby product.Name
-//                select product;
-////--------------updating fajita------------------------ -
-//var FajitaPizza = context.Products
-//    .Where(p => p.Name.Equals("Fajita Pizza"))
-//    .FirstOrDefault();
-
-//if (FajitaPizza is Product)
-//{
-//    FajitaPizza.Price = 2400;
-//}
-
-
-////---------------Deleting from DB-----------------------
-//var TikkaPizza = context.Products
-//    .Where(p => p.Name.Equals("Tikka Pizza"))
-//     .FirstOrDefault();
-
-//if (TikkaPizza is Product)
-//{
-//    context.Remove(TikkaPizza);
-//}
-
-////---------------fluent API syntax----------------------
-//var products = context.Products
-//    .Where(p => p.Price > 2300)
-//    .OrderBy(p => p.Name);
-
-//context.SaveChanges();
-
-
-////-----------------Printing Result----------------------
-//foreach (Product i in products)
-//{
-//    Console.WriteLine($"ID:         {i.Id}");
-//    Console.WriteLine($"Name:       {i.Name}");
-//    Console.WriteLine($"Price:      {i.Price}");
-//    Console.WriteLine(new string('-', 20));
-//}
-
-class Program
+using (var context = new ItallianPizzaContext())
 {
-    static void Main()
+    var productRepository = new ProductRepository(context);
+    var customerRepository = new CustomerRepository(context);
+    //var orderRepository = new OrderRepository(context);
+
+
+    PerformProductOperations(productRepository);
+    PerformCustomerOperations(customerRepository);
+
+}
+
+void PerformCustomerOperations(CustomerRepository customerRepository)
+{
+    //ADDING NEW CUSTOMER
+    var newCustomer = new Customer
     {
-        using (var context = new ItallianPizzaContext())
-        {
-            var productOperations = new ProductRepository(context);
+        FirstName = "Hina",
+        LastName = "Arif",
+        Address = "Steet#9 House 2 Pk",
+        Email = "hinaarif@gmail.com"
+    };
 
-            var newProduct = new Product
-            { 
-                    Name = "BBQ Pizza",
-                    Price = 3500
-            };
-
-            productOperations.AddProduct(newProduct);
-
-            var products = productOperations.GetProductsbyPrice(2000);
-            PrintProducts(products);
-        }
+    //UPDATE CUSTOMER
+    var UpdateCustomer = customerRepository.GetById(1
+        );
+    if(UpdateCustomer != null)
+    {
+        UpdateCustomer.FirstName = "Naveen";
+        customerRepository.Update(UpdateCustomer);
     }
-    static void PrintProducts(IEnumerable<Product> products)
+
+    //REMOVE PRODUCT
+    //customerRepository.Delete(1);
+
+    //READING ALL DATA
+    var customers = customerRepository.GetAll();
+
+    //PRINTING DATA
+    PrintingCustomers(customers);
+
+   
+
+}
+
+void PerformProductOperations(ProductRepository productRepository)
+{
+    //ADDING NEW PRODUCT
+    var newProduct = new Product
     {
-        foreach (Product product in products) 
-        {
-            Console.WriteLine($"ID: {product.Id}");
-            Console.WriteLine($"Name: {product.Name}");
-            Console.WriteLine($"Price: {product.Price}");
-            Console.WriteLine(new string('-', 20));
-        }
+        Name = "BBQ Tikka Masala Pizza",
+        Price = 3300,
+    };
+    productRepository.Add(newProduct);
+
+ 
+    //UPDATE PRODUCT
+    var UpdateProduct = productRepository.GetById(4);
+    if(UpdateProduct != null)
+    {
+        UpdateProduct.Name = "Tikka Chicken Pizza";
+        productRepository.Update(UpdateProduct);
+    }
+
+    //REMOVE PRODUCT
+    productRepository.Delete(6);
+
+    //READING ALL DATA
+    var products = productRepository.GetAll();
+
+    //PRINTING DATA
+    PrintingProducts(products);
+
+}
+
+
+
+//PRINTING METHODS
+
+void PrintingProducts(IEnumerable<Product> products) //ienumerable
+{
+    Console.WriteLine("Printing Products");
+    Console.WriteLine(new string('-', 20));
+    foreach(Product prod in products)
+    {
+        Console.WriteLine($"ID:         {prod.Id}");
+        Console.WriteLine($"Name:       {prod.Name}");
+        Console.WriteLine($"Price       {prod.Price}");
+        Console.WriteLine(new string('-',20)); //string 
+    }
+}
+
+void PrintingCustomers(IEnumerable<Customer> customers)
+{
+    Console.WriteLine("Printing Customers");
+    Console.WriteLine(new string('-', 20));
+    foreach(Customer cust in customers)
+    {
+        Console.WriteLine($"ID          {cust.Id}");
+        Console.WriteLine($"FirstName   {cust.FirstName}");
+        Console.WriteLine($"LastName    {cust.LastName}");
+        Console.WriteLine(new string('-',20));
     }
 }
