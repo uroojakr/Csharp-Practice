@@ -1,7 +1,7 @@
 ﻿using Testing_EF_Approaches.Data;
 using Testing_EF_Approaches.Model;
 
-StudentAppDBContext obj  = new StudentAppDBContext();
+StudentAppDBContext obj = new StudentAppDBContext();
 Student studentobj = new Student()
 {
     Name = "Urooj Akram",

@@ -1,8 +1,7 @@
+C:\Users\akramuro\source\repos\Entity-Framework-Practices\Pizza-Delivery\bin\Debug\net7.0\Pizza-Delivery.dll
 C:\Users\akramuro\source\repos\Entity-Framework-Practices\Pizza-Delivery\bin\Debug\net7.0\Pizza-Delivery.exe
 C:\Users\akramuro\source\repos\Entity-Framework-Practices\Pizza-Delivery\bin\Debug\net7.0\Pizza-Delivery.deps.json
 C:\Users\akramuro\source\repos\Entity-Framework-Practices\Pizza-Delivery\bin\Debug\net7.0\Pizza-Delivery.runtimeconfig.json
-C:\Users\akramuro\source\repos\Entity-Framework-Practices\Pizza-Delivery\bin\Debug\net7.0\Pizza-Delivery.dll
-C:\Users\akramuro\source\repos\Entity-Framework-Practices\Pizza-Delivery\bin\Debug\net7.0\Pizza-Delivery.pdb
 C:\Users\akramuro\source\repos\Entity-Framework-Practices\Pizza-Delivery\bin\Debug\net7.0\Azure.Core.dll
 C:\Users\akramuro\source\repos\Entity-Framework-Practices\Pizza-Delivery\bin\Debug\net7.0\Azure.Identity.dll
 C:\Users\akramuro\source\repos\Entity-Framework-Practices\Pizza-Delivery\bin\Debug\net7.0\Humanizer.dll
@@ -65,4 +64,5 @@ C:\Users\akramuro\source\repos\Entity-Framework-Practices\Pizza-Delivery\obj\Deb
 C:\Users\akramuro\source\repos\Entity-Framework-Practices\Pizza-Delivery\obj\Debug\net7.0\refint\Pizza-Delivery.dll
 C:\Users\akramuro\source\repos\Entity-Framework-Practices\Pizza-Delivery\obj\Debug\net7.0\Pizza-Delivery.pdb
 C:\Users\akramuro\source\repos\Entity-Framework-Practices\Pizza-Delivery\obj\Debug\net7.0\Pizza-Delivery.genruntimeconfig.cache
+C:\Users\akramuro\source\repos\Entity-Framework-Practices\Pizza-Delivery\bin\Debug\net7.0\Pizza-Delivery.pdb
 C:\Users\akramuro\source\repos\Entity-Framework-Practices\Pizza-Delivery\obj\Debug\net7.0\ref\Pizza-Delivery.dll

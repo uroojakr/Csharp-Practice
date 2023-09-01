@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace EF_PizzaConsole.Data
+namespace EF_PizzaConsole.Models
 {
-    internal class PlutoContext
+    public class PlutoContext : DbContext
     {
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<Course> Courses { get; set; }
+
+
     }
 }

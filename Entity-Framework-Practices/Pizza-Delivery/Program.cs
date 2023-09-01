@@ -1,109 +1,172 @@
-﻿using Pizza_Delivery.Data;
+﻿
+using Pizza_Delivery.Data;
 using Pizza_Delivery.Models;
 using Pizza_Delivery.Repositories;
+using Pizza_Delivery.Repositories.Interfaces;
 using Pizza_Delivery.Repositories.Services;
 
-using (var context = new ItallianPizzaContext())
+ItallianPizzaContext _context = new ItallianPizzaContext();
+
+//adding data first
+//var product = new Product
+//              {
+//                  Name = "BBQ Pizza",
+//                  Price = 2300
+//              };
+
+IProductRepository productRepository = new ProductRepository(_context);
+ICustomerRepository customerRepository = new CustomerRepository(_context);
+IOrderRepository orderRepository = new OrderRepository(_context);
+IOrderDetailRepository orderDetailRepository = new OrderDetailRepository(_context);
+IDeliveriesRepository deliveriesRepository = new DeliveriesRepository(_context);
+IPaymentRepository paymentRepository = new PaymentRepository(_context);
+//productRepository.Add(product);
+
+
+//reading data
+var allProducts = productRepository.GetAll();
+
+Console.WriteLine("Printing all Products");
+
+foreach (Product p in allProducts)
 {
-    var productRepository = new ProductRepository(context);
-    var customerRepository = new CustomerRepository(context);
-    //var orderRepository = new OrderRepository(context);
-
-
-    PerformProductOperations(productRepository);
-    PerformCustomerOperations(customerRepository);
-
+    Console.WriteLine($"{p.Id}  {p.Name}    {p.Price}");
 }
 
-void PerformCustomerOperations(CustomerRepository customerRepository)
+//updating data
+//var updateproduct = productRepository.GetById(2);
+//if (updateproduct != null)
+//{
+//    updateproduct.Price = 5000;
+//    productRepository.Update(updateproduct);
+//}
+//Console.WriteLine("updated Data is ");
+//Console.WriteLine($"{updateproduct!.Id}  {updateproduct.Name}    {updateproduct.Price}");
+
+////deleting data
+//var deleteProduct = productRepository.GetById(1);
+//if (deleteProduct != null)
+//{
+//    productRepository.Delete(1);
+//}
+
+//using interface methods for product
+//var minPrice = 2500;
+//var maxPrice = 4000;
+//var productInRange = productRepository.GetProductsByPriceRange(minPrice, maxPrice);
+//Console.WriteLine("Price Range is");
+//foreach (Product p in productInRange)
+//{
+//    Console.WriteLine($"{p.Id}  {p.Name} {p.Price}");
+//}
+
+//Customers CRUD
+int existingProductID = 1;
+if (existingProductID.Equals(null))
 {
-    //ADDING NEW CUSTOMER
-    var newCustomer = new Customer
-    {
-        FirstName = "Hina",
-        LastName = "Arif",
-        Address = "Steet#9 House 2 Pk",
-        Email = "hinaarif@gmail.com"
-    };
+    Console.WriteLine("ID not found");
+}
+//adding customer first 
+//var customer = new Customer
+//{
+//    FirstName = "Urooj",
+//    LastName = "Akram",
+//    Email = "uroojakrm@email.com,",
+//    Address = "Street 10, ISB",
+//    Phone = "5432-322333",
+//};
+//var order = new Order
+//{
+//    OrderPlaced = DateTime.Now,
+//    //Customer = customer,
+//    CustomerId = 2,
+//    ProductID = 1,
 
-    //UPDATE CUSTOMER
-    var UpdateCustomer = customerRepository.GetById(1
-        );
-    if(UpdateCustomer != null)
-    {
-        UpdateCustomer.FirstName = "Naveen";
-        customerRepository.Update(UpdateCustomer);
-    }
+//};
+//var orderDetails = new OrderDetail
+//{
 
-    //REMOVE PRODUCT
-    //customerRepository.Delete(1);
+//    Order = order,
+//    Quantity = 2,
+    
+//};
+//customerRepository.Add(customer);
+//orderRepository.Add(order);
+//orderDetailRepository.Add(orderDetails);
 
-    //READING ALL DATA
-    var customers = customerRepository.GetAll();
+//creating for deliveries and payment 
 
-    //PRINTING DATA
-    PrintingCustomers(customers);
+int orderId = 10;
+var productPrices = _context.Orders.Where(od => od.Id == orderId).Sum(p => p.Product.Price);
+var orderDetail = _context.OrderDetails.Where(od => od.OrderId == orderId).FirstOrDefault();
+var totalAmount = productPrices * orderDetail!.Quantity;
 
-   
+var payment = new Payment
+{
+    PaymentDate = DateTime.Now,
+    PaymentMethod = "Credit  Card",
+    Status = "Paid",
+    TotalAmount = totalAmount,
+};
+var delivery = new Deliveries
+{
+    FirstName = "Ali",
+    LastName = "Ahmed",
+    Phone = "434-333333",
+    IsAvailable = true,
+    OrderID = orderId,
+};
+//var orderadd = new Order
+//{
+//    OrderPlaced = DateTime.Now,
+//    CustomerId = 2,
+//    ProductID = 2,
+//};
 
+
+//orderRepository.Add(orderadd);
+paymentRepository.Add(payment);
+deliveriesRepository.Add(delivery);
+
+
+
+// ------------------------------ Reading Data ----------------------------------------------
+// ...
+
+// ------------------------------ Reading Data ----------------------------------------------
+var allCustomers = customerRepository.GetAll();
+Console.WriteLine("\n Printing all Customers");
+
+foreach (var customers in allCustomers)
+{
+    Console.WriteLine($"{customers.Id}   {customers.FirstName}    {customers.Address}");
 }
 
-void PerformProductOperations(ProductRepository productRepository)
-{
-    //ADDING NEW PRODUCT
-    var newProduct = new Product
-    {
-        Name = "BBQ Tikka Masala Pizza",
-        Price = 3300,
-    };
-    productRepository.Add(newProduct);
+//------------------------------- Reading Orders and their Details -------------------------
+var allOrders = orderRepository.GetAll();
+Console.WriteLine("\n Pritning all Orders");
 
- 
-    //UPDATE PRODUCT
-    var UpdateProduct = productRepository.GetById(4);
-    if(UpdateProduct != null)
+foreach (var orders in allOrders)
+{
+    Console.WriteLine($"{orders.Id}     {orders.OrderPlaced}");
+    if (orders.Customer != null)
     {
-        UpdateProduct.Name = "Tikka Chicken Pizza";
-        productRepository.Update(UpdateProduct);
+        Console.WriteLine($"{orders.Customer.FirstName}      {orders.Customer.Address}");
+    }
+    else
+    {
+        Console.WriteLine("No customer information available for this order.");
     }
 
-    //REMOVE PRODUCT
-    productRepository.Delete(6);
-
-    //READING ALL DATA
-    var products = productRepository.GetAll();
-
-    //PRINTING DATA
-    PrintingProducts(products);
-
+    //------------ reading order details ---------------------------------------------------
+    //foreach (var item in orders.OrderDetails)
+    //{
+    //    Console.WriteLine($"{item.Quantity}");
+    //}
 }
-
-
-
-//PRINTING METHODS
-
-void PrintingProducts(IEnumerable<Product> products) //ienumerable
+Console.WriteLine("Reading all deliveries");
+var allDeliveries = deliveriesRepository.GetAll();
+foreach(Deliveries deliveries in allDeliveries)
 {
-    Console.WriteLine("Printing Products");
-    Console.WriteLine(new string('-', 20));
-    foreach(Product prod in products)
-    {
-        Console.WriteLine($"ID:         {prod.Id}");
-        Console.WriteLine($"Name:       {prod.Name}");
-        Console.WriteLine($"Price       {prod.Price}");
-        Console.WriteLine(new string('-',20)); //string 
-    }
-}
-
-void PrintingCustomers(IEnumerable<Customer> customers)
-{
-    Console.WriteLine("Printing Customers");
-    Console.WriteLine(new string('-', 20));
-    foreach(Customer cust in customers)
-    {
-        Console.WriteLine($"ID          {cust.Id}");
-        Console.WriteLine($"FirstName   {cust.FirstName}");
-        Console.WriteLine($"LastName    {cust.LastName}");
-        Console.WriteLine(new string('-',20));
-    }
+    Console.WriteLine($"{deliveries.FirstName}      {deliveries.OrderID}    {deliveries.IsAvailable}");
 }

@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EF_PizzaConsole.Models
+﻿namespace EF_PizzaConsole.Models
 {
     public class Course
     {
         public int CourseId { get; set; }
         public string CourseName { get; set; } = null!;
-
-
-        public string Authors { get; set; } = null!;
+        public int SalesCount { get; set; }
     }
 }

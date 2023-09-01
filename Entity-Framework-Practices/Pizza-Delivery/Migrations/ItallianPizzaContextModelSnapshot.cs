@@ -52,7 +52,7 @@ namespace Pizza_Delivery.Migrations
                     b.ToTable("Customers");
                 });
 
-            modelBuilder.Entity("Pizza_Delivery.Models.DeliveryDriver", b =>
+            modelBuilder.Entity("Pizza_Delivery.Models.Deliveries", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -71,34 +71,16 @@ namespace Pizza_Delivery.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("OrderID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("DeliveryDrivers");
-                });
-
-            modelBuilder.Entity("Pizza_Delivery.Models.MenuCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("MenuCategories");
+                    b.ToTable("Deliveries");
                 });
 
             modelBuilder.Entity("Pizza_Delivery.Models.Order", b =>
@@ -109,11 +91,13 @@ namespace Pizza_Delivery.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Customer")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DeliveriesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DeliveryID")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("OrderPlaced")
@@ -122,9 +106,21 @@ namespace Pizza_Delivery.Migrations
                     b.Property<DateTime?>("Orderfulfilled")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("PaymentId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductID")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CustomerId");
+
+                    b.HasIndex("DeliveriesId");
+
+                    b.HasIndex("PaymentId");
+
+                    b.HasIndex("ProductID");
 
                     b.ToTable("Orders");
                 });
@@ -140,9 +136,6 @@ namespace Pizza_Delivery.Migrations
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
@@ -150,9 +143,37 @@ namespace Pizza_Delivery.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.HasIndex("ProductId");
-
                     b.ToTable("OrderDetails");
+                });
+
+            modelBuilder.Entity("Pizza_Delivery.Models.Payment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("OrderID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("PaymentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PaymentMethod")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("TotalAmount")
+                        .HasColumnType("decimal(6, 2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Payments");
                 });
 
             modelBuilder.Entity("Pizza_Delivery.Models.Product", b =>
@@ -177,11 +198,29 @@ namespace Pizza_Delivery.Migrations
 
             modelBuilder.Entity("Pizza_Delivery.Models.Order", b =>
                 {
-                    b.HasOne("Pizza_Delivery.Models.Customer", null)
+                    b.HasOne("Pizza_Delivery.Models.Customer", "Customer")
                         .WithMany("Orders")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Pizza_Delivery.Models.Deliveries", null)
+                        .WithMany("Orders")
+                        .HasForeignKey("DeliveriesId");
+
+                    b.HasOne("Pizza_Delivery.Models.Payment", null)
+                        .WithMany("Orders")
+                        .HasForeignKey("PaymentId");
+
+                    b.HasOne("Pizza_Delivery.Models.Product", "Product")
+                        .WithMany("Orders")
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Pizza_Delivery.Models.OrderDetail", b =>
@@ -192,15 +231,7 @@ namespace Pizza_Delivery.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Pizza_Delivery.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Order");
-
-                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Pizza_Delivery.Models.Customer", b =>
@@ -208,9 +239,24 @@ namespace Pizza_Delivery.Migrations
                     b.Navigation("Orders");
                 });
 
+            modelBuilder.Entity("Pizza_Delivery.Models.Deliveries", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
             modelBuilder.Entity("Pizza_Delivery.Models.Order", b =>
                 {
                     b.Navigation("OrderDetails");
+                });
+
+            modelBuilder.Entity("Pizza_Delivery.Models.Payment", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("Pizza_Delivery.Models.Product", b =>
+                {
+                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }

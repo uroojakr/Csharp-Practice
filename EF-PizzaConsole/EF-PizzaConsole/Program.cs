@@ -19,5 +19,12 @@ static void Main(string[] args)
         unitOfWork.Course.Remove(course);
 
         unitOfWork.Complete();
+
+
+        //var coursesWithHighSales = unitOfWork.Course.Find(c => c.SalesCount > 100);
+        //foreach (Course c in coursesWithHighSales)
+        //{
+        //    Console.WriteLine($"Course Name: {c.CourseName}, Sales Count: {c.SalesCount}");
+        //}
     }
 }

@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//namespace Pizza_Delivery.Repositories.Interfaces
+//{
+//    public interface IUnitOfWork : IDisposable
+//    {
+//        IProductRepository ProductRepository { get; }
+//        IOrderRepository OrderRepository { get; }
+//        IDeliveriesRepository DeliveriesRepository { get; }
+//        IPaymentRepository PaymentRepository { get; }
+//        IOrderDetailRepository OrderDetailRepository { get; }
 
-namespace Pizza_Delivery.Repositories.Interfaces
-{
-    internal class IUnitOfWork
-    {
-    }
-}
+//        int Complete();
+//    }
+//}

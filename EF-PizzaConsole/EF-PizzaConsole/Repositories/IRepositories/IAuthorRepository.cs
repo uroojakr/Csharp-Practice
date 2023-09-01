@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EF_PizzaConsole.IRepositories
+namespace EF_PizzaConsole.Repositories.IRepositories
 {
-    internal interface IAuthorRepository
+    public interface IAuthorRepository
     {
     }
 }

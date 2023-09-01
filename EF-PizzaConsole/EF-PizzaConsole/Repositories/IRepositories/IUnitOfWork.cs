@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EF_PizzaConsole.IRepositories
+namespace EF_PizzaConsole.Repositories.IRepositories
 {
-    internal interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
+        ICourseRepository Course { get; }
+       // IAuthorRepository Authors { get; }
+
+        int Complete();
     }
 }

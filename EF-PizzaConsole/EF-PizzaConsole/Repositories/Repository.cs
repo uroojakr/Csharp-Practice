@@ -1,4 +1,4 @@
-﻿using EF_PizzaConsole.IRepositories;
+﻿using EF_PizzaConsole.Repositories.IRepositories;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,35 +11,40 @@ namespace EF_PizzaConsole.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        protected readonly DbContext Context; //generic
+        private readonly DbContext _context; //generic 
 
         public Repository(DbContext context) 
         {
-            Context = context;
+            _context = context;
         }
         public void Add(TEntity entity)
         {
-           Context.Set<TEntity>().Add(entity);
+           _context.Set<TEntity>().Add(entity);
         }
 
-        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate) //ienumerable for encapsulating queries
+        //public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate) //ienumerable for encapsulating queries
+        //{
+        //   return _context.Set<TEntity>().Where(predicate);
+        //}
+
+        public IEnumerable<TEntity> GetAll() //all instances
         {
-           return Context.Set<TEntity>().Where(predicate);
+            return _context.Set<TEntity>().ToList();
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public TEntity Get(int id) //specific instance
         {
-            return Context.Set<TEntity>().ToList();
-        }
-
-        public TEntity Get(int id)
-        {
-            return Context.Set<TEntity>().Find(id) ?? throw new InvalidOperationException($"Entity with ID {id} not found."); ;
+            return _context.Set<TEntity>().Find(id) ?? throw new InvalidOperationException($"Entity with ID {id} not found."); ;
         }
 
         public void Remove(TEntity entity)
         {
-            Context.Set<TEntity>().Remove(entity);  
+            _context.Set<TEntity>().Remove(entity);  
+        }
+
+        public void Update(TEntity entity)
+        {
+            _context.Set<TEntity>().Update(entity);
         }
     }
 }
