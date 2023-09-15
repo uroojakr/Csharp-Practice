@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\EMSWebApi1.props" />
+</Project>

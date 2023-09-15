@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "qO5jqpHijTgG08QcpQJNqVWTrsd9En8WGSkuwFRdsAEukv/gGWMihTyt1QN46m5MQ6X0PAhLTypM0HMUvx9QPg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\akramuro\\source\\repos\\Event-Management-System\\EMS.Business.Models\\EMS.Business.Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\akramuro\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\akramuro\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
+    "C:\\Users\\akramuro\\.nuget\\packages\\nunit\\3.13.3\\nunit.3.13.3.nupkg.sha512"
+  ],
+  "logs": []
+}

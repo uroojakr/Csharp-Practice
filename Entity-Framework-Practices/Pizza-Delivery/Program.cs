@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
 using Pizza_Delivery.Data;
 using Pizza_Delivery.Models;
 using Pizza_Delivery.Repositories;
@@ -170,3 +171,21 @@ foreach(Deliveries deliveries in allDeliveries)
 {
     Console.WriteLine($"{deliveries.FirstName}      {deliveries.OrderID}    {deliveries.IsAvailable}");
 }
+
+//joining
+
+var customerOrders = _context.Customers
+    .Join(_context.Orders, c => c.Id, o => o.CustomerId, (customer, order) => new
+    {
+        CustomerName = customer.FirstName,
+        OrderDate = order.OrderPlaced
+    })
+    .ToList();
+
+foreach (var item in customerOrders)
+{
+    Console.WriteLine(item);
+}
+
+//raw sql
+var products = _context.Products.FromSqlRaw("SELECT * FROM PRODUCTS WHERE Price > {0}", 2000).ToList();
