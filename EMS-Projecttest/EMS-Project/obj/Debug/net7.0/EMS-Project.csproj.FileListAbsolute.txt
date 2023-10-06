@@ -1,4 +1,0 @@
-C:\Users\akramuro\source\repos\EMS-Project\EMS-Project\obj\Debug\net7.0\EMS-Project.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\akramuro\source\repos\EMS-Project\EMS-Project\obj\Debug\net7.0\EMS-Project.AssemblyInfoInputs.cache
-C:\Users\akramuro\source\repos\EMS-Project\EMS-Project\obj\Debug\net7.0\EMS-Project.AssemblyInfo.cs
-C:\Users\akramuro\source\repos\EMS-Project\EMS-Project\obj\Debug\net7.0\EMS-Project.csproj.CoreCompileInputs.cache
