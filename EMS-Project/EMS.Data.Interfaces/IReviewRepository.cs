@@ -5,5 +5,5 @@ namespace EMS.Data.Interfaces
     public interface IReviewRepository : IRepository<Review>
     {
     }
-    
+
 }

@@ -24,11 +24,11 @@ namespace EMS.Data.Migrations
 
             modelBuilder.Entity("EMS.Data.Models.Events", b =>
                 {
-                    b.Property<int>("EventId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EventId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -48,20 +48,40 @@ namespace EMS.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("EventId");
+                    b.HasKey("Id");
 
                     b.HasIndex("OrganizerId");
 
                     b.ToTable("Events");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Date = new DateTime(2023, 10, 19, 12, 55, 12, 66, DateTimeKind.Local).AddTicks(580),
+                            Description = "cooking show for beginners",
+                            Location = "ISB",
+                            OrganizerId = 1,
+                            Title = "Cooking Show"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Date = new DateTime(2023, 10, 4, 12, 55, 12, 66, DateTimeKind.Local).AddTicks(613),
+                            Description = "Kids Support Event",
+                            Location = "Karachi",
+                            OrganizerId = 2,
+                            Title = "Sports Event"
+                        });
                 });
 
             modelBuilder.Entity("EMS.Data.Models.Review", b =>
                 {
-                    b.Property<int>("ReviewId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReviewId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Comment")
                         .IsRequired()
@@ -80,7 +100,7 @@ namespace EMS.Data.Migrations
                     b.Property<int?>("VendorId")
                         .HasColumnType("int");
 
-                    b.HasKey("ReviewId");
+                    b.HasKey("Id");
 
                     b.HasIndex("EventId");
 
@@ -89,15 +109,35 @@ namespace EMS.Data.Migrations
                     b.HasIndex("VendorId");
 
                     b.ToTable("Reviews");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Comment = "Good event!",
+                            EventId = 1,
+                            Rating = 4,
+                            UserId = 1,
+                            VendorId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Comment = "Awesome event!",
+                            EventId = 2,
+                            Rating = 5,
+                            UserId = 2,
+                            VendorId = 2
+                        });
                 });
 
             modelBuilder.Entity("EMS.Data.Models.Ticket", b =>
                 {
-                    b.Property<int>("TickerId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TickerId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("EventId")
                         .HasColumnType("int");
@@ -105,20 +145,34 @@ namespace EMS.Data.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("TickerId");
+                    b.HasKey("Id");
 
                     b.HasIndex("EventId");
 
                     b.ToTable("Tickets");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            EventId = 1,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            EventId = 2,
+                            UserId = 2
+                        });
                 });
 
             modelBuilder.Entity("EMS.Data.Models.User", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -135,18 +189,36 @@ namespace EMS.Data.Migrations
                     b.Property<byte>("UserType")
                         .HasColumnType("tinyint");
 
-                    b.HasKey("UserId");
+                    b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "urooj.akram@mail.com",
+                            Password = "339fd",
+                            UserName = "Urooj Akram",
+                            UserType = (byte)1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Email = "sanakhalid@mail.com",
+                            Password = "4he9ju",
+                            UserName = "Sana Khalid",
+                            UserType = (byte)0
+                        });
                 });
 
             modelBuilder.Entity("EMS.Data.Models.Vendor", b =>
                 {
-                    b.Property<int>("VendorId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VendorId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ContactInformation")
                         .IsRequired()
@@ -160,9 +232,25 @@ namespace EMS.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("VendorId");
+                    b.HasKey("Id");
 
                     b.ToTable("Vendors");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ContactInformation = "532-3333",
+                            Description = "Providing all the facilites for sports",
+                            Name = "Sports Crew"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ContactInformation = "339-22844",
+                            Description = "Photography essentials for the events by professional cameraman",
+                            Name = "Photography"
+                        });
                 });
 
             modelBuilder.Entity("EMS.Data.Models.VendorEvent", b =>
@@ -173,11 +261,28 @@ namespace EMS.Data.Migrations
                     b.Property<int>("EventId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
                     b.HasKey("VendorId", "EventId");
 
                     b.HasIndex("EventId");
 
                     b.ToTable("VendorEvents");
+
+                    b.HasData(
+                        new
+                        {
+                            VendorId = 1,
+                            EventId = 1,
+                            Id = 1
+                        },
+                        new
+                        {
+                            VendorId = 2,
+                            EventId = 2,
+                            Id = 2
+                        });
                 });
 
             modelBuilder.Entity("EMS.Data.Models.Events", b =>

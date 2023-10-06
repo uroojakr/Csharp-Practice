@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
-using System;
 
 namespace EMS.Data
 {
@@ -14,7 +13,7 @@ namespace EMS.Data
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            string connectionString = configuration.GetConnectionString("EMS-DataBase") ?? throw new InvalidOperationException("Connection string 'EMS-DataBase' not found.");
+            string connectionString = configuration.GetConnectionString("EMS-DataBase") ?? throw new InvalidOperationException("Connection string 'EMS-DataBase' not found in appsettings.json");
 
             if (string.IsNullOrEmpty(connectionString))
             {

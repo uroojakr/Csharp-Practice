@@ -1,12 +1,11 @@
-﻿
-
-using EMS.Business.Models;
+﻿using EMS.Business.Models;
+using EMS.Data.Models;
 
 namespace EMS.Business.Interfaces
 {
-    public interface IEventsService : IGenericService<EventsModel>
+    public interface IEventsService : IGenericCrudService<Events, EventsModel>
     {
         Task<IEnumerable<EventsModel>> GetEventsByLocation(string location);
-        Task<IEnumerable<EventsModel>> GetEventsByDateRange(DateTime startDate, DateTime endDate);
+       
     }
 }

@@ -1,4 +1,5 @@
 C:\Users\akramuro\source\repos\EMS-Project\EMS.Business.DataService\bin\Debug\net7.0\EMS.Business.DataService.deps.json
+C:\Users\akramuro\source\repos\EMS-Project\EMS.Business.DataService\bin\Debug\net7.0\EMS.Business.DataService.runtimeconfig.json
 C:\Users\akramuro\source\repos\EMS-Project\EMS.Business.DataService\bin\Debug\net7.0\EMS.Business.DataService.dll
 C:\Users\akramuro\source\repos\EMS-Project\EMS.Business.DataService\bin\Debug\net7.0\EMS.Business.DataService.pdb
 C:\Users\akramuro\source\repos\EMS-Project\EMS.Business.DataService\bin\Debug\net7.0\EMS.Business.Interfaces.dll
@@ -20,4 +21,5 @@ C:\Users\akramuro\source\repos\EMS-Project\EMS.Business.DataService\obj\Debug\ne
 C:\Users\akramuro\source\repos\EMS-Project\EMS.Business.DataService\obj\Debug\net7.0\EMS.Business.DataService.dll
 C:\Users\akramuro\source\repos\EMS-Project\EMS.Business.DataService\obj\Debug\net7.0\refint\EMS.Business.DataService.dll
 C:\Users\akramuro\source\repos\EMS-Project\EMS.Business.DataService\obj\Debug\net7.0\EMS.Business.DataService.pdb
+C:\Users\akramuro\source\repos\EMS-Project\EMS.Business.DataService\obj\Debug\net7.0\EMS.Business.DataService.genruntimeconfig.cache
 C:\Users\akramuro\source\repos\EMS-Project\EMS.Business.DataService\obj\Debug\net7.0\ref\EMS.Business.DataService.dll

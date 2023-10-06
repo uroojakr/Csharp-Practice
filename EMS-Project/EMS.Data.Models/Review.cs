@@ -1,12 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Numerics;
 
 namespace EMS.Data.Models
 {
     public class Review
     {
         [Key]
-        public int ReviewId { get; set; }
+        public int Id { get; set; }
         [Required]
         public string Comment { get; set; } = null!;
         [Range(1, 5)]
@@ -16,6 +15,8 @@ namespace EMS.Data.Models
         public Events Event { get; set; } = null!;
         public int? VendorId { get; set; }
         public Vendor Vendor { get; set; } = null!;
+
+
 
     }
 }

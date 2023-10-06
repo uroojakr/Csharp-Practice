@@ -12,5 +12,6 @@ public class BusinessMappingProfile : Profile
         CreateMap<User, UserModel>().ReverseMap();
         CreateMap<Vendor, VendorModel>().ReverseMap();
         CreateMap<VendorEvent, VendorEventModel>().ReverseMap();
+
     }
 }

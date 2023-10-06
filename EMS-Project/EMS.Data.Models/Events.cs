@@ -1,12 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Net.Sockets;
 
 namespace EMS.Data.Models
 {
     public class Events
     {
         [Key]
-        public int EventId { get; set; }
+        public int Id { get; set; }
         [Required]
         public string Title { get; set; } = null!;
         [Required]

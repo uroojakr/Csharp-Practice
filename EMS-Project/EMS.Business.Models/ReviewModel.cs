@@ -4,7 +4,6 @@ namespace EMS.Business.Models
 {
     public class ReviewModel
     {
-        public int ReviewId { get; set; }
 
         [Required(ErrorMessage = "Comment is required")]
         public string Comment { get; set; } = null!;

@@ -5,7 +5,7 @@ namespace EMS.Data.Models
     public class Vendor
     {
         [Key]
-        public int VendorId { get; set; }
+        public int Id { get; set; }
         [Required]
         public string Name { get; set; } = null!;
         [Required]
@@ -13,6 +13,6 @@ namespace EMS.Data.Models
         [Required]
         public string ContactInformation { get; set; } = null!;
 
-        public ICollection<VendorEvent> VendorEvents { get; set; } = null!;
+        public ICollection<VendorEvent> VendorEvents { get; set; } = new List<VendorEvent>();
     }
 }

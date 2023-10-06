@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using EMS.Data.Models;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace EMSWebApi.Data
 {
     public class EMSWebApiContext : DbContext
     {
-        public EMSWebApiContext (DbContextOptions<EMSWebApiContext> options)
+        public EMSWebApiContext(DbContextOptions<EMSWebApiContext> options)
             : base(options)
         {
         }

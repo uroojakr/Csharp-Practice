@@ -1,5 +1,5 @@
-﻿using Abp.Domain.Entities;
-using EMS.Data.Interfaces;
+﻿using EMS.Data.Interfaces;
+using EMS.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System.Linq.Expressions;
@@ -12,13 +12,14 @@ namespace EMS.Data
         private readonly EMSDbContext _context;
         private readonly DbSet<TEntity> _dbSet;
         private readonly ILogger<Repository<TEntity>> _logger;
+
         public Repository(EMSDbContext context, ILogger<Repository<TEntity>> logger)
         {
             _context = context;
             _dbSet = _context.Set<TEntity>();
             _logger = logger;
-
         }
+    
         public bool Add(TEntity entity)
         {
             try
@@ -32,12 +33,11 @@ namespace EMS.Data
                 return false;
             }
         }
-
-        public bool AddRange(IEnumerable<TEntity> entities)
+        public async Task<bool> AddRange(IEnumerable<TEntity> entities)
         {
             try
             {
-                _dbSet.AddRangeAsync(entities);
+                await _dbSet.AddRangeAsync(entities);
                 return true;
             }
             catch (Exception ex)
@@ -46,8 +46,6 @@ namespace EMS.Data
                 return false;
             }
         }
-
-
         public bool Delete(int id)
         {
             try
@@ -65,22 +63,17 @@ namespace EMS.Data
                 return false;
             }
         }
-
         public async Task<TEntity> GetById(int id)
         {
             try
             {
                 var entity = await _dbSet.FindAsync(id);
-                if (entity == null)
-                {
-                    throw new EntityNotFoundException($"Entity with ID {id} not found.");
-                }
-                return entity;
+                return entity!;
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "{ErrorMessage}", ex.Message);
-                return default(TEntity)!;
+                return null!;
             }
         }
 
@@ -88,12 +81,10 @@ namespace EMS.Data
         {
             return await _dbSet.ToListAsync();
         }
-
         public IQueryable<TEntity> GetQuery(Expression<Func<TEntity, bool>> predicate)
         {
             return _dbSet.Where(predicate);
         }
-
         public async Task<IEnumerable<TEntity>> GetWithInclude(Expression<Func<TEntity, bool>> predicate, string include)
         {
             var query = _dbSet.AsQueryable();
@@ -105,7 +96,6 @@ namespace EMS.Data
 
             return await query.Where(predicate).ToListAsync();
         }
-
         public bool Update(TEntity entity)
         {
             try
@@ -119,10 +109,22 @@ namespace EMS.Data
                 return false;
             }
         }
+        public async Task<IEnumerable<TEntity>> GetWithIncludeAsync(Expression<Func<TEntity, bool>> filter, params Expression<Func<TEntity, object>>[] includeProperties)
+        {
+            IQueryable<TEntity> query = _dbSet;
 
+            foreach (var includeProperty in includeProperties)
+            {
+                query = query.Include(includeProperty);
+            }
 
+            return await query.Where(filter).ToListAsync();
+        }
 
-        
+        public IQueryable<TEntity> GetAllAsync()
+        {
+            return _dbSet;
+        }
     }
 }
 

@@ -5,7 +5,7 @@ namespace EMS.Data
 {
     public class EMSDbContext : DbContext
     {
-   
+
         public EMSDbContext(DbContextOptions<EMSDbContext> options) : base(options) { }
 
         public DbSet<Events> Events { get; set; }
@@ -53,102 +53,106 @@ namespace EMS.Data
 
 
             //seeding data 
-          //  modelBuilder.Entity<Events>().HasData(
-          //      new Events
-          //      {
-          //          EventId = 1,
-          //          Title = "Cooking Show",
-          //          Description = "cooking show for beginners",
-          //          Date = DateTime.Now.AddDays(15),
-          //          Location = "ISB",
-          //          OrganizerId = 1,
-          //      },
-          //      new Events
-          //      {
-          //          EventId = 2,
-          //          Title = "Sports Event",
-          //          Description = "Kids Support Event",
-          //          Date = DateTime.Now,
-          //          Location = "Karachi",
-          //          OrganizerId = 2,
-          //      });
-          //  modelBuilder.Entity<Review>().HasData(
-          //      new Review
-          //      {
-          //          ReviewId = 1,
-          //          Comment = "Good event!",
-          //          Rating = 4,
-          //          UserId = 1,
-          //          EventId = 1,
-          //      },
-          //      new Review
-          //      {
-          //          ReviewId = 2,
-          //          Comment = "Awesome event!",
-          //          Rating = 5,
-          //          UserId = 2,
-          //          EventId = 2,
-          //      });
-          //  modelBuilder.Entity<Ticket>().HasData(
-          //    new Ticket
-          //    {
-          //        TickerId = 1,
-          //        UserId = 1,
-          //        EventId = 1,
-          //    },
-          //    new Ticket
-          //    {
-          //        TickerId = 2,
-          //        UserId = 2,
-          //        EventId = 2,
-          //    }
-          //);
-          //  modelBuilder.Entity<User>().HasData(
-          //      new User
-          //      {
-          //          UserId = 1,
-          //          UserName = "Urooj Akram",
-          //          Email = "urooj.akram@mail.com",
-          //          Password = "339fd",
-          //          UserType = UserType.Attendee,
-          //      },
-          //      new User
-          //      {
-          //          UserId = 2,
-          //          UserName = "Sana Khalid",
-          //          Email = "sanakhalid@mail.com",
-          //          Password = "4he9ju",
-          //          UserType = UserType.Organizer,
-          //      });
+            modelBuilder.Entity<Events>().HasData(
+                new Events
+                {
+                    Id = 1,
+                    Title = "Cooking Show",
+                    Description = "cooking show for beginners",
+                    Date = DateTime.Now.AddDays(15),
+                    Location = "ISB",
+                    OrganizerId = 1,
+                },
+                new Events
+                {
+                    Id = 2,
+                    Title = "Sports Event",
+                    Description = "Kids Support Event",
+                    Date = DateTime.Now,
+                    Location = "Karachi",
+                    OrganizerId = 2,
+                });
+            modelBuilder.Entity<Review>().HasData(
+                new Review
+                {
+                    Id = 1,
+                    Comment = "Good event!",
+                    Rating = 4,
+                    UserId = 1,
+                    EventId = 1,
+                    VendorId = 1,
+                },
+                new Review
+                {
+                    Id = 2,
+                    Comment = "Awesome event!",
+                    Rating = 5,
+                    UserId = 2,
+                    EventId = 2,
+                    VendorId = 2,
+                });
+            modelBuilder.Entity<Ticket>().HasData(
+              new Ticket
+              {
+                  Id = 1,
+                  UserId = 1,
+                  EventId = 1,
+              },
+              new Ticket
+              {
+                  Id = 2,
+                  UserId = 2,
+                  EventId = 2,
+              }
+          );
+            modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    Id = 1,
+                    UserName = "Urooj Akram",
+                    Email = "urooj.akram@mail.com",
+                    Password = "339fd",
+                    UserType = UserType.Attendee,
+                },
+                new User
+                {
+                    Id = 2,
+                    UserName = "Sana Khalid",
+                    Email = "sanakhalid@mail.com",
+                    Password = "4he9ju",
+                    UserType = UserType.Organizer,
+                });
 
-          //  modelBuilder.Entity<Vendor>().HasData(
-          //      new Vendor
-          //      {
-          //          VendorId = 1,
-          //          Name = "Sports Crew",
-          //          Description = "Providing all the facilites for sports",
-          //          ContactInformation = "532-3333",
-          //      },
-          //      new Vendor
-          //      {
-          //          VendorId = 2,
-          //          Name = "Photography",
-          //          Description = "Photography essentials for the events by professional cameraman",
-          //          ContactInformation = "339-22844",
-          //      } );
+            modelBuilder.Entity<Vendor>().HasData(
+                new Vendor
+                {
+                    Id = 1,
+                    Name = "Sports Crew",
+                    Description = "Providing all the facilites for sports",
+                    ContactInformation = "532-3333",
+                },
+                new Vendor
+                {
+                    Id = 2,
+                    Name = "Photography",
+                    Description = "Photography essentials for the events by professional cameraman",
+                    ContactInformation = "339-22844",
+                });
 
-          //  modelBuilder.Entity<VendorEvent>().HasData(
-          //      new VendorEvent
-          //      {
-          //          VendorId = 1,
-          //          EventId = 1,
-          //      },
-          //       new VendorEvent
-          //       {
-          //           VendorId = 2,
-          //           EventId = 2,
-          //       }
-          //      );
+            modelBuilder.Entity<VendorEvent>().HasData(
+                new VendorEvent
+                {
+                    Id = 1,
+                    VendorId = 1,
+                    EventId = 1,
+                },
+                 new VendorEvent
+                 {
+                     Id = 2,
+                     VendorId = 2,
+                     EventId = 2,
+                 }
+                );
             base.OnModelCreating(modelBuilder);
         }
     }

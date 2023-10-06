@@ -1,4 +1,4 @@
-﻿using Castle.Components.DictionaryAdapter;
+﻿
 using EMS.Data.Interfaces;
 using EMS.Data.Models;
 using Microsoft.Extensions.Logging;
@@ -6,20 +6,27 @@ using Microsoft.Extensions.Logging;
 
 namespace EMS.Data
 {
-    public class UnitOfWork : IUnitOfWork 
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly EMSDbContext _context;
         private readonly ILogger _logger;
-        public UnitOfWork(EMSDbContext context, ILogger<UnitOfWork> logger)
+        private readonly ILoggerFactory _loggerFactory;
+
+        public UnitOfWork(
+            EMSDbContext context,
+            ILogger<UnitOfWork> logger,
+            ILoggerFactory loggerFactory)
         {
             _context = context;
             _logger = logger;
+            _loggerFactory = loggerFactory;
 
-            UserRepository = new Repository<User>(_context, (ILogger<Repository<User>>)_logger);
-            EventsRepository = new Repository<Events>(_context, (ILogger<Repository<Events>>)_logger);
-            ReviewRepository = new Repository<Review>(_context, (ILogger<Repository<Review>>)_logger);
-            TicketRepository = new Repository<Ticket>(_context, (ILogger<Repository<Ticket>>)_logger);
-            VendorRepository = new Repository<Vendor>(_context, (ILogger<Repository<Vendor  >>)_logger);
+            // Inject logger instances when creating repositories
+            UserRepository = new Repository<User>(_context, _loggerFactory.CreateLogger<Repository<User>>());
+            EventsRepository = new Repository<Events>(_context, _loggerFactory.CreateLogger<Repository<Events>>());
+            ReviewRepository = new Repository<Review>(_context, _loggerFactory.CreateLogger<Repository<Review>>());
+            TicketRepository = new Repository<Ticket>(_context, _loggerFactory.CreateLogger<Repository<Ticket>>());
+            VendorRepository = new Repository<Vendor>(_context, _loggerFactory.CreateLogger<Repository<Vendor>>());
         }
 
 
@@ -38,7 +45,7 @@ namespace EMS.Data
             catch (Exception ex)
             {
                 _logger.LogError(ex, "{ErrorMessage}", ex.Message);
-                throw; 
+                throw;
             }
         }
 
@@ -48,9 +55,11 @@ namespace EMS.Data
             _context.Dispose();
         }
 
-        public IRepository  <TEntityModel> GetRepository<TEntityModel>() where TEntityModel : class
+        public IRepository<TEntityModel> GetRepository<TEntityModel>() where TEntityModel : class
         {
-            return new Repository<TEntityModel>(_context, (ILogger<Repository<TEntityModel>>)_logger);
+            return new Repository<TEntityModel>(_context, _loggerFactory.CreateLogger<Repository<TEntityModel>>());
         }
+
+
     }
 }

@@ -6,7 +6,6 @@ namespace EMS.Business.Models
 {
     public class EventsModel
     {
-        public int Id { get; set; }
 
         [Required(ErrorMessage = "Title is required.")]
         public string Title { get; set; } = null!;
@@ -21,9 +20,6 @@ namespace EMS.Business.Models
         public string Location { get; set; } = null!;
 
         public int OrganizerId { get; set; }
-        public string OrganizerName { get; set; } = null!;
-        public List<TicketModel> Tickets { get; set; } = null!;
-        public List<VendorEventModel> VendorEvents { get; set; } = null!;
-        public List<ReviewModel> Reviews { get; set; } = null!;
+
     }
 }
