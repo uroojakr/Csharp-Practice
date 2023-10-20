@@ -1,0 +1,39 @@
+*{
+    margin : 5px;
+    box-sizing: border-box;
+} 
+
+body {
+    background: rgb(38, 160, 119);
+    font-family: sans-serif;
+    text-align: center;
+    color: azure;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: rgb(216, 212, 202);
+    padding: 2em 0 2em 0;
+}
+
+.left {
+    background: rgb(73, 73, 122);
+    padding: 3em 0 2em 0 ;
+}
+main{
+    background: rgb(49, 49, 56);
+    padding: 3em, 0 3em;
+
+}
+.right
+{
+    background: rgb(114, 82, 145);
+    padding: 3em 0 2em 0;
+}
+footer
+{
+    background: rgb(97, 74, 202);
+    padding: 3em 0 3em 0;
+}
