@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -8,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EMS.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class FirstCreate : Migration
+    public partial class update : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -54,7 +53,7 @@ namespace EMS.Data.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OrganizerId = table.Column<int>(type: "int", nullable: false)
+                    OrganizerId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -64,7 +63,7 @@ namespace EMS.Data.Migrations
                         column: x => x.OrganizerId,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(
@@ -169,8 +168,8 @@ namespace EMS.Data.Migrations
                 columns: new[] { "Id", "Date", "Description", "Location", "OrganizerId", "Title" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 10, 19, 12, 55, 12, 66, DateTimeKind.Local).AddTicks(580), "cooking show for beginners", "ISB", 1, "Cooking Show" },
-                    { 2, new DateTime(2023, 10, 4, 12, 55, 12, 66, DateTimeKind.Local).AddTicks(613), "Kids Support Event", "Karachi", 2, "Sports Event" }
+                    { 1, new DateTime(2023, 11, 17, 13, 11, 6, 431, DateTimeKind.Local).AddTicks(8381), "cooking show for beginners", "ISB", 1, "Cooking Show" },
+                    { 2, new DateTime(2023, 11, 2, 13, 11, 6, 431, DateTimeKind.Local).AddTicks(8425), "Kids Support Event", "Karachi", 2, "Sports Event" }
                 });
 
             migrationBuilder.InsertData(

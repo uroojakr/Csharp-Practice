@@ -16,7 +16,7 @@ namespace EMS.Data.Interfaces
         Task<bool> AddRange(IEnumerable<TEntity> entities);
         bool Update(TEntity entity);
         bool Delete(int id);
-       
+
     }
 
 }

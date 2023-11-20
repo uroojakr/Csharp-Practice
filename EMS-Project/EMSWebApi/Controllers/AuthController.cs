@@ -1,18 +1,18 @@
-﻿using EMS.Business.Interfaces;
+﻿
+
+using EMS.Business.Interfaces;
 using EMS.Business.Models;
 using EMSWebApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using System.Configuration;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Text;
 
 namespace EMSWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthController : ControllerBase
+    public class AuthController : Microsoft.AspNetCore.Mvc.ControllerBase
     {
         private readonly IUserService _userService;
         private readonly IConfiguration _configuration;
@@ -25,7 +25,7 @@ namespace EMSWebApi.Controllers
             _logger = logger;
         }
 
-        [HttpPost("login")]
+        [Microsoft.AspNetCore.Mvc.HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
             var user = await _userService.AuthenticateUser(model.UserName, model.Password);
@@ -46,7 +46,7 @@ namespace EMSWebApi.Controllers
         {
             var section = _configuration.GetSection("JwtSettings");
             var secretKey = section["JwtSecretKey"];
-            var keyBytes = Encoding.ASCII.GetBytes(secretKey!);
+            var keyBytes = System.Text.Encoding.ASCII.GetBytes(secretKey!);
             var issuer = section["JwtIssuer"];
             var audience1 = section["JwtAudience"];
             var expires = DateTime.UtcNow.AddHours(1);
@@ -65,7 +65,8 @@ namespace EMSWebApi.Controllers
                 expires: expires,
                 signingCredentials: new SigningCredentials(new SymmetricSecurityKey(keyBytes), SecurityAlgorithms.HmacSha256)
             );
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            var _token = new JwtSecurityTokenHandler().WriteToken(token);
+            return _token;
         }
 
     }

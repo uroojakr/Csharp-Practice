@@ -9,5 +9,7 @@ namespace EMS.Business.Interfaces
         Task<UserModel> AuthenticateUser(string username, string password);
         Task<IEnumerable<UserModel>> GetUserByUserType(UserType userType);
         Task<User> ChangePassword(int userId, string oldPassword, string newPassword);
+        Task<IEnumerable<object>> GetAllUsers();
+        Task<object> GetUser(int id);
     }
 }

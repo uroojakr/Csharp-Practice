@@ -26,7 +26,9 @@ namespace EMSWebApi.Controllers
             _logger = logger;
         }
 
-        // GET : api/Users
+
+
+        // GET : api/Users/userType
         [HttpGet("ByUserType/{userType}")]
         [Authorize(Roles = "Administrator,Organizer")]
         public async Task<ActionResult<IEnumerable<UserModel>>> GetUserByUserType(UserType userType)
@@ -45,7 +47,7 @@ namespace EMSWebApi.Controllers
 
                 var userModels = _mapper.Map<IEnumerable<UserModel>>(users);
                 _logger.LogInformation("Successfully ran GetByUserType");
-                return Ok(new { message = "Successfully retrieved", user = userModels});
+                return Ok(new { message = "Successfully retrieved", user = userModels });
             }
             catch (Exception ex)
             {
@@ -54,15 +56,17 @@ namespace EMSWebApi.Controllers
             }
         }
 
+
+
         [HttpPut("ChangePassword/{userId}")]
         [Authorize(Roles = "Administrator, Organizer")]
-        public async Task<IActionResult> ChangePassword(int userId, [FromBody] ChangePasswordModel changePasswordModel )
+        public async Task<IActionResult> ChangePassword(int userId, [FromBody] ChangePasswordModel changePasswordModel)
         {
             try
             {
                 var user = await _userService.GetByIdAsync(userId);
 
-                if(user != null && user.Password == changePasswordModel.OldPassword)
+                if (user != null && user.Password == changePasswordModel.OldPassword)
                 {
                     user.Password = changePasswordModel.NewPassword;
                     await _userService.UpdateAsync(userId, user);
@@ -70,7 +74,7 @@ namespace EMSWebApi.Controllers
                 }
                 return BadRequest(new { message = "Invalid password or user" });
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError("Exception occurred while changing password for user ID: {userID}, Error: {Error}", userId, ex.Message);
                 return StatusCode(500, new { message = " An erro occurred while changing the password", error = ex.Message });
@@ -80,27 +84,26 @@ namespace EMSWebApi.Controllers
         //GET : api/Users/5
         [HttpGet("{id}")]
         [Authorize(Roles = "Administrator,Organizer")]
-        public async Task<ActionResult<User>> GetUser(int id)
+        public async Task<ActionResult<object>> GetUser(int id)
         {
             _logger.LogInformation("Attempting to retrieve user with ID: {UserID}", id);
 
-            var user = await _userService.GetByIdAsync(id);
+            var user = await _userService.GetUser(id);
 
             if (user == null)
             {
                 _logger.LogError("User Not found with specified ID: {UserID}", id);
-                return NotFound(new {message = "User not found with specified ID" });
+                return NotFound(new { message = "User not found with specified ID" });
             }
 
-            var userEntity = _mapper.Map<User>(user);
             _logger.LogInformation("Successfully ran GetUser");
-            return Ok(new { message = "Successfully Retrieved", user = userEntity });
+            return Ok(user);
         }
 
         //POST: api/Users
         [HttpPost]
         [Authorize(Roles = "Administrator")]
-        public async Task<IActionResult> CreateUser([FromBody]UserModel userModel)
+        public async Task<IActionResult> CreateUser([FromBody] UserModel userModel)
         {
             if (!ModelState.IsValid)
             {
@@ -128,7 +131,7 @@ namespace EMSWebApi.Controllers
         {
             try
             {
-                if (!ModelState.IsValid) 
+                if (!ModelState.IsValid)
                 {
                     var errors = ModelState
                         .Where(e => e.Value!.Errors.Count > 0)
@@ -171,11 +174,30 @@ namespace EMSWebApi.Controllers
             var user = await _userService.GetByIdAsync(id);
             if (user == null)
             {
-                return NotFound( new { message = "{id} Not found!", id } );
+                return NotFound(new { message = "{id} Not found!", id });
             }
             await _userService.DeleteAsync(id);
             return Ok(new { message = "Deleted Successfully" });
         }
+
+        //GET: api/Users/GetAllUsers
+        [HttpGet()]
+        [Authorize(Roles = "Administrator,Organizer")]
+        public async Task<ActionResult<object>> GetAll()
+        {
+            try
+            {
+                _logger.LogInformation("Attempting to retrieve all Users");
+                var users = await _userService.GetAllUsers();
+                return Ok(users);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("An  error occured ", ex.Message);
+                return NotFound(new { message = "Events not found" });
+            }
+        }
+
 
     }
 }

@@ -21,7 +21,7 @@ namespace EMS.Business.DataService
             if (user == null)
             {
                 return null!;
-            }
+            } 
 
             return _mapper.Map<UserModel>(user);
         }
@@ -47,6 +47,24 @@ namespace EMS.Business.DataService
                 return user;
             }
             return null!;
+        }
+        // Get All Users
+        public async Task<IEnumerable<object>> GetAllUsers()
+        {
+            var users = await _repository.GetAll();
+
+            return users;
+        }
+        // Get User By id
+        public async Task<object> GetUser(int id)
+        {
+            var users = await _repository.GetAll();
+            var user = users.FirstOrDefault(u => u.Id == id);
+            if (user is null)
+            {
+                Console.Write("User Not Found");
+            }
+            return user!;
         }
     }
 }

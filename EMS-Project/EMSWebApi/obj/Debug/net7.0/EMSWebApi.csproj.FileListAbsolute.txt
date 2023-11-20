@@ -23,6 +23,14 @@ C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\Enums.NET.
 C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\Humanizer.dll
 C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\JetBrains.Annotations.dll
 C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\MathNet.Numerics.dll
+C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\System.Web.Mvc.dll
+C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\System.Web.Razor.dll
+C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\System.Net.Http.Formatting.dll
+C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\System.Web.Http.dll
+C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\System.Web.Helpers.dll
+C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\System.Web.WebPages.Deployment.dll
+C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\System.Web.WebPages.Razor.dll
+C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\System.Web.WebPages.dll
 C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\Microsoft.AspNetCore.Razor.Language.dll
@@ -68,9 +76,11 @@ C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\Microsoft.
 C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
 C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\Microsoft.Web.Infrastructure.dll
 C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
 C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\Nito.AsyncEx.Context.dll
 C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\Nito.AsyncEx.Coordination.dll
 C:\Users\akramuro\source\repos\EMS-Project\EMSWebApi\bin\Debug\net7.0\Nito.AsyncEx.Tasks.dll

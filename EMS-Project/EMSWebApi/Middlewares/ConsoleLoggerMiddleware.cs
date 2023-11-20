@@ -15,7 +15,7 @@
             await next(context);
             Console.WriteLine("After Request");
 
-            Console.WriteLine("WriteAsync executed");
+            Console.WriteLine("Write executed");
         }
     }
 }

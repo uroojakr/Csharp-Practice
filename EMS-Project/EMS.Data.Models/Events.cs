@@ -13,10 +13,10 @@ namespace EMS.Data.Models
         [Required]
         public DateTime Date { get; set; }
         [Required]
-        public string Location { get; set; } = null!;
+        public string Location { get; set; } = null!; 
 
-        public int OrganizerId { get; set; }
-        public User Organizer { get; set; } = null!;
+        public int? OrganizerId { get; set; }
+        public User? Organizer { get; set; }
         public ICollection<Ticket> Tickets { get; set; } = null!;
         public ICollection<VendorEvent> VendorEvents { get; set; } = null!;
         public ICollection<Review> Reviews { get; set; } = null!;

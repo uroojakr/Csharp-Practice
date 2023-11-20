@@ -23,7 +23,7 @@ namespace EMS.Business.DataService
 
             if (vendor == null)
             {
-                return false; 
+                return false;
             }
 
             vendor.Description = newDescription;

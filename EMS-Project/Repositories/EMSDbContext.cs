@@ -30,13 +30,17 @@ namespace EMS.Data
                 .HasOne(ve => ve.Event)
                 .WithMany(e => e.VendorEvents)
                 .HasForeignKey(ve => ve.EventId);
-
-            // configure the one-to-many relationship between User and Events (Organizer)
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.OrganizedEvents)
-                .WithOne(e => e.Organizer)
-                .HasForeignKey(e => e.OrganizerId)
-                .OnDelete(DeleteBehavior.Restrict); // prevent cascade delete
+            modelBuilder.Entity<Events>()
+                .HasOne(ve => ve.Organizer)
+                .WithMany(e => e.OrganizedEvents)
+                .HasForeignKey(ve => ve.OrganizerId)
+                .OnDelete(DeleteBehavior.SetNull);
+            //// configure the one-to-many relationship between User and Events (Organizer)
+            //modelBuilder.Entity<User>()
+            //    .HasMany(u => u.OrganizedEvents)
+            //    .WithOne(e => e.Organizer)
+            //    .HasForeignKey(e => e.OrganizerId)
+            //    .OnDelete(DeleteBehavior.SetNull); // prevent cascade delete
 
             // configure the one-to-many relationship between Event and Ticket
             modelBuilder.Entity<Ticket>()

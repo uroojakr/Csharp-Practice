@@ -1,6 +1,4 @@
-﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
-
-namespace EMSWebApi.Middlewares
+﻿namespace EMSWebApi.Middlewares
 {
     public static class LoggingMiddlewareExtensions
     {

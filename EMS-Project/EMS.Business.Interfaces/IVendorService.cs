@@ -8,7 +8,7 @@ namespace EMS.Business.Interfaces
         Task<int> GetVendorCountAsync();
         Task<VendorModel?> GetVendorWithReviewsAsync(int id);
         Task<bool> UpdateVendorDescriptionAsync(int vendorId, string newDescription);
-        
-       
+
+
     }
 }

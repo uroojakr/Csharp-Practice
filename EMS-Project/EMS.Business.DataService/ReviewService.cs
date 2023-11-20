@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using EMS.Business.Interfaces;
 using EMS.Business.Models;
-using EMS.Data;
 using EMS.Data.Models;
 
 namespace EMS.Business.DataService
@@ -17,7 +16,7 @@ namespace EMS.Business.DataService
             var reviewsForEvent = await _unitOfWork.GetRepository<Review>()
            .GetAll();
 
-            var reviewsFilteredByEvent = reviewsForEvent.Where( r => r.EventId == eventId );
+            var reviewsFilteredByEvent = reviewsForEvent.Where(r => r.EventId == eventId);
 
             if (reviewsFilteredByEvent.Any())
             {
@@ -33,7 +32,7 @@ namespace EMS.Business.DataService
         {
             var reviewsForVendor = await _unitOfWork.GetRepository<Review>().GetAll();
 
-            var reviewsFilteredByVendor = reviewsForVendor.Where( r => r.VendorId == vendorId );
+            var reviewsFilteredByVendor = reviewsForVendor.Where(r => r.VendorId == vendorId);
             if (reviewsFilteredByVendor.Any())
             {
                 var avgRating = reviewsFilteredByVendor.Average(r => r.Rating);

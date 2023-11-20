@@ -7,18 +7,14 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System.Security.Claims;
-using Microsoft.Extensions.Logging;
-using System.Text;
 using System.IdentityModel.Tokens.Jwt;
-using Microsoft.CodeAnalysis.Elfie.Diagnostics;
-using Microsoft.DotNet.Scaffolding.Shared.Messaging;
-using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
+using System.Text;
 
 namespace EMSWebApi
 {
     public class Startup
-    { 
+    {
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -26,7 +22,7 @@ namespace EMSWebApi
 
         public IConfiguration Configuration { get; }
 
-       
+
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -36,14 +32,14 @@ namespace EMSWebApi
             {
                 loggingBuilder.AddConsole();
             });
-           // services.AddScoped<TokenExpirationCheckFilter>();
+            // services.AddScoped<TokenExpirationCheckFilter>();
 
             var config = Configuration.GetSection("JwtSettings");
             var secretKey = config["JwtSecretKey"];
             var key = Encoding.ASCII.GetBytes(secretKey!);
             var issue = config["JwtIssuer"];
             var audience = config["JwtAudience"];
-           
+
 
             services.AddAuthentication(options =>
             {
@@ -75,13 +71,13 @@ namespace EMSWebApi
                         var userTypeClaim = context.Principal.FindFirst(ClaimTypes.Role);
                         var logger = context.HttpContext.RequestServices.GetRequiredService<ILogger<Startup>>();
 
-                        if (context.SecurityToken is JwtSecurityToken jwtSecurityToken)
+                        if (context.SecurityToken is JwtSecurityToken jwtSecurityToken) //type checking and assingning 
                         {
                             if (userTypeClaim?.Value == "Administrator" || userTypeClaim?.Value == "Organizer")
                             {
                                 logger.LogInformation($"User '{usernameClaim?.Value}' with role '{userTypeClaim?.Value}' authenticated successfully");
 
-                                // Check if the token has expired
+                                // checking for expired token
                                 if (jwtSecurityToken.ValidTo < DateTime.UtcNow)
                                 {
                                     logger.LogWarning($"User '{usernameClaim?.Value}' with role '{userTypeClaim?.Value}' authenticated with an expired token");
@@ -117,16 +113,15 @@ namespace EMSWebApi
                     {
                         var logger = context.HttpContext.RequestServices.GetRequiredService<ILogger<Startup>>();
                         logger.LogWarning(context.Exception.Message, " OnAuthenticationFailed");
-                        context.Response.Headers.Add("message","Authentication Failed");
+                        context.Response.Headers.Add("message", "Authentication Failed");
                         return Task.CompletedTask;
-                        //expired time exception
                     },
                     OnForbidden = context =>
                     {
                         var logger = context.HttpContext.RequestServices.GetRequiredService<ILogger<Startup>>();
                         logger.LogWarning($"A User attempted to access a forbidden resource");
 
-                        // Forbid access and return a 403 Forbidden response
+                        // Forbid access and return a 403 
                         context.Response.StatusCode = StatusCodes.Status403Forbidden;
                         context.Response.ContentType = "application/json";
 
@@ -160,7 +155,7 @@ namespace EMSWebApi
             services.AddScoped<ITicketService, TicketService>();
             services.AddScoped<IReviewService, ReviewService>();
             services.AddScoped<IVendorService, VendorService>();
-            
+
 
             //Configure Swagger
             services.AddSwaggerGen(options =>
@@ -200,6 +195,16 @@ namespace EMSWebApi
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseRouting();
+
+            //enabling CORS
+            app.UseCors(builder =>
+            {
+                builder.WithOrigins("http://localhost:3000")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials();
+            });
+
             app.UseAuthentication();
             app.UseAuthorization();
 

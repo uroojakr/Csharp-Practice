@@ -53,7 +53,7 @@ namespace EMSWebApi.Controllers
                 _logger.LogInformation("Attempting to retrieve events by location: {Location}", location);
                 var events = await _eventsService.GetEventsByLocation(location);
 
-                if(events == null || !events.Any())
+                if (events == null || !events.Any())
                 {
                     _logger.LogInformation("No events found at the specified location: {Location}", location);
                     return NotFound(new { message = "No Events found at location specified: {Location}", location });
@@ -63,7 +63,7 @@ namespace EMSWebApi.Controllers
                 _logger.LogInformation("Successfully ran GetEventsByLocation");
                 return Ok(new { message = "Sucessfully retrieved events by location ", events = eventModels });
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError("An error occurred while retrieving events by location: {Error} ", ex.Message);
                 return StatusCode(500, new { message = " An error occurred while retrieving events by location: {Error}", ex.Message });
@@ -166,7 +166,7 @@ namespace EMSWebApi.Controllers
         public async Task<IActionResult> DeleteEvent(int id)
         {
             var events = await _eventsService.GetByIdAsync(id);
-            if(events == null)
+            if (events == null)
             {
                 return NotFound(new { message = "{userID} Not found!", id });
             }

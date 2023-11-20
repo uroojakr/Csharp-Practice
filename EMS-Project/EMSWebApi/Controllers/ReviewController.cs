@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
-using EMS.Business.DataService;
 using EMS.Business.Interfaces;
 using EMS.Business.Models;
 using EMS.Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging; // Make sure to import ILogger.
 
 namespace EMSWebApi.Controllers
 {
@@ -34,7 +32,7 @@ namespace EMSWebApi.Controllers
             }
             catch (Exception ex)
             {
-              
+
                 return StatusCode(500, new { message = "An error occurred", error = ex.Message });
             }
         }
@@ -50,7 +48,7 @@ namespace EMSWebApi.Controllers
             }
             catch (Exception ex)
             {
-           
+
                 return StatusCode(500, new { message = "An error occurred", error = ex.Message });
             }
         }
@@ -66,7 +64,7 @@ namespace EMSWebApi.Controllers
             }
             catch (Exception ex)
             {
-               
+
                 return StatusCode(500, new { message = "An error occurred", error = ex.Message });
             }
         }

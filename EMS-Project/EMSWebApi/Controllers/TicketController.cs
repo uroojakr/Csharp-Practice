@@ -3,7 +3,6 @@ using EMS.Business.Models;
 using EMS.Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 
 namespace EMSWebApi.Controllers
@@ -14,14 +13,14 @@ namespace EMSWebApi.Controllers
     {
         private readonly ITicketService _ticketService;
         private readonly IMapper _mapper;
-        private readonly ILogger<TicketController> _logger; 
+        private readonly ILogger<TicketController> _logger;
 
         public TicketController(ITicketService ticketService, IMapper mapper, ILogger<TicketController> logger)
         {
             _ticketService = ticketService;
             _mapper = mapper;
             _logger = logger;
-        }  
+        }
 
 
         [HttpGet("user/{userId}")]
@@ -54,12 +53,13 @@ namespace EMSWebApi.Controllers
             return Ok(new { message = "Successfully Retrieved", tickets = ticketModels });
         }
 
+
         //POST: api/Tickets
         [HttpPost]
         [Authorize(Roles = "Administrator")]
-         public async Task<IActionResult> CreateTicket([FromBody]TicketModel ticketModel)
+        public async Task<IActionResult> CreateTicket([FromBody] TicketModel ticketModel)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 var errors = ModelState
                     .Where(e => e.Value!.Errors.Count > 0)
@@ -132,6 +132,38 @@ namespace EMSWebApi.Controllers
             return Ok(new { message = "Deleted Successfully" });
         }
 
+        //GET: api/Ticket/
+        [HttpGet]
+        [Authorize(Roles = "Administrator,Organizer")]
+        public async Task<IActionResult> GetAllTickets()
+        {
+            var tickets = await _ticketService.GetAllAsync();
+            if (tickets == null || !tickets.Any())
+            {
+                return NotFound(new { message = "No tickets found" });
+            }
+            var ticketModels = _mapper.Map<IEnumerable<TicketModel>>(tickets);
+
+            _logger.LogInformation("Successfully retrieved all tickets");
+            return Ok(new { message = "Successfully Retrieved", tickets = ticketModels });
+        }
+
+        //GET: api/Ticket/{id}
+        [HttpGet("{id}", Name = "GetTicketById")]
+        [Authorize(Roles = "Administrator,Organizer")]
+        public async Task<IActionResult> GetTicketById(int id)
+        {
+            var ticket = await _ticketService.GetByIdAsync(id);
+            if (ticket == null)
+            {
+                return NotFound(new { message = $"Ticket with ID {id} not found" });
+            }
+
+            var ticketModel = _mapper.Map<TicketModel>(ticket);
+
+            _logger.LogInformation("Successfully retrieved ticket by ID");
+            return Ok(new { message = "Successfully Retrieved", ticket = ticketModel });
+        }
 
     }
 }

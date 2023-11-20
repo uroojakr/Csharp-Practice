@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EMS.Data.Migrations
 {
     [DbContext(typeof(EMSDbContext))]
-    [Migration("20231004075512_FirstCreate")]
-    partial class FirstCreate
+    [Migration("20231102081106_update")]
+    partial class update
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,7 +44,7 @@ namespace EMS.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("OrganizerId")
+                    b.Property<int?>("OrganizerId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -61,7 +61,7 @@ namespace EMS.Data.Migrations
                         new
                         {
                             Id = 1,
-                            Date = new DateTime(2023, 10, 19, 12, 55, 12, 66, DateTimeKind.Local).AddTicks(580),
+                            Date = new DateTime(2023, 11, 17, 13, 11, 6, 431, DateTimeKind.Local).AddTicks(8381),
                             Description = "cooking show for beginners",
                             Location = "ISB",
                             OrganizerId = 1,
@@ -70,7 +70,7 @@ namespace EMS.Data.Migrations
                         new
                         {
                             Id = 2,
-                            Date = new DateTime(2023, 10, 4, 12, 55, 12, 66, DateTimeKind.Local).AddTicks(613),
+                            Date = new DateTime(2023, 11, 2, 13, 11, 6, 431, DateTimeKind.Local).AddTicks(8425),
                             Description = "Kids Support Event",
                             Location = "Karachi",
                             OrganizerId = 2,
@@ -293,8 +293,7 @@ namespace EMS.Data.Migrations
                     b.HasOne("EMS.Data.Models.User", "Organizer")
                         .WithMany("OrganizedEvents")
                         .HasForeignKey("OrganizerId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Organizer");
                 });

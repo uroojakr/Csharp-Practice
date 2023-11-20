@@ -11,8 +11,8 @@ namespace EMSWebApi.Middlewares
 
         public LoggingMiddleware(RequestDelegate next, ILogger<LoggingMiddleware> logger)
         {
-            _next = next ?? throw new ArgumentNullException(nameof(next));
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _next = next;
+            _logger = logger;
         }
 
         public async Task Invoke(HttpContext context)

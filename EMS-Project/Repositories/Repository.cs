@@ -1,5 +1,4 @@
 ﻿using EMS.Data.Interfaces;
-using EMS.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System.Linq.Expressions;
@@ -19,7 +18,7 @@ namespace EMS.Data
             _dbSet = _context.Set<TEntity>();
             _logger = logger;
         }
-    
+
         public bool Add(TEntity entity)
         {
             try

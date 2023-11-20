@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using EMS.Business.DataService;
 using EMS.Business.Interfaces;
 using EMS.Business.Models;
 using EMS.Data.Models;
